@@ -37,6 +37,7 @@
 		  <input type="text" class="form-control" style="border: 0px solid #ccc;" id="txtBuscarTermino" placeholder="Buscar por nombre, Dni, N° HC, Tlf.">
 		</div>
 		<button class="btn btn-default" id="btnBuscarGeneral"><i class="fa fa-search" aria-hidden="true"></i></button>
+		<button class="btn btn-default" id="btnAddNewGeneral"><i class="fa fa-user-plus" aria-hidden="true"></i></button>
 	  </div>
 	 
 	</div><!-- /.navbar-collapse -->
@@ -60,6 +61,7 @@
 				<li><a href="#">Nueva cita</a></li>
 				<li><a href="#">Nuevo cliente</a></li>
 				<li><a href="#">Administrar clientes</a></li>
+				<li><a href="#">Cuentas pendientes</a></li>
 			</ul>
 		</li>
 		<li>

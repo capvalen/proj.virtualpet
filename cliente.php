@@ -13,6 +13,9 @@
 	<link rel="stylesheet" href="css/menuLeftDeslizable.css?version=1.2.1">
 	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"> <!-- extraído de: https://eonasdan.github.io/bootstrap-datetimepicker/-->
 	<link href="css/bootstrap-select.min.css" rel="stylesheet"> <!-- extraido de: https://silviomoreto.github.io/bootstrap-select/-->
+	 <!-- Línea de tiempo y liston extraidos de: 
+	 https://bootsnipp.com/snippets/featured/timeline-responsive
+	 https://bootsnipp.com/snippets/a3pyD-->
 
 </head>
 <body>
@@ -60,6 +63,7 @@
 				<li><a href="#">Nueva cita</a></li>
 				<li><a href="#">Nuevo cliente</a></li>
 				<li><a href="#">Administrar clientes</a></li>
+				<li><a href="#">Cuentas pendientes</a></li>
 			</ul>
 		</li>
 		<li>
@@ -161,7 +165,7 @@
 				<div class="col-xs-5">
 					<button class="btn btn-circle btn-rojoFresa btn-outline pull-right mitooltip" title="Eliminar paciente"><i class="icofont icofont-heart-beat"></i></button>
 					<button class="btn btn-circle btn-negro btn-outline pull-right mitooltip" title="Cambiar de dueño"><i class="icofont icofont-random"></i></button>
-					<button class="btn btn-circle btn-success btn-outline pull-right mitooltip" title="Nuevo servicio"><i class="icofont icofont-stethoscope-alt"></i></button>
+					<button class="btn btn-circle btn-success btn-outline pull-right mitooltip" title="Nueva atención"><i class="icofont icofont-stethoscope-alt"></i></button>
 					<button class="btn btn-circle btn-morado btn-outline pull-right mitooltip" title="Ver historia clínica"><i class="icofont icofont-file-alt"></i></button>
 				</div>
 			</div>
@@ -174,7 +178,7 @@
 				<div class="col-xs-5">
 					<button class="btn btn-circle btn-rojoFresa btn-outline pull-right mitooltip" title="Eliminar paciente"><i class="icofont icofont-heart-beat"></i></button>
 					<button class="btn btn-circle btn-negro btn-outline pull-right mitooltip" title="Cambiar de dueño"><i class="icofont icofont-random"></i></button>
-					<button class="btn btn-circle btn-success btn-outline pull-right mitooltip" title="Nuevo servicio"><i class="icofont icofont-stethoscope-alt"></i></button>
+					<button class="btn btn-circle btn-success btn-outline pull-right mitooltip" title="Nueva atención"><i class="icofont icofont-stethoscope-alt"></i></button>
 					<button class="btn btn-circle btn-morado btn-outline pull-right mitooltip" title="Ver historia clínica"><i class="icofont icofont-file-alt"></i></button>
 				</div>
 			</div>
@@ -187,7 +191,7 @@
 				<div class="col-xs-5">
 					<button class="btn btn-circle btn-rojoFresa btn-outline pull-right mitooltip" title="Eliminar paciente"><i class="icofont icofont-heart-beat"></i></button>
 					<button class="btn btn-circle btn-negro btn-outline pull-right mitooltip" title="Cambiar de dueño"><i class="icofont icofont-random"></i></button>
-					<button class="btn btn-circle btn-success btn-outline pull-right mitooltip" title="Nuevo servicio"><i class="icofont icofont-stethoscope-alt"></i></button>
+					<button class="btn btn-circle btn-success btn-outline pull-right mitooltip" title="Nueva atención"><i class="icofont icofont-stethoscope-alt"></i></button>
 					<button class="btn btn-circle btn-morado btn-outline pull-right mitooltip" title="Ver historia clínica"><i class="icofont icofont-file-alt"></i></button>
 				</div>
 			</div>
@@ -360,6 +364,9 @@ $('#cmbActividadVet').on('click','.optActividadVeter',function () {
 	console.log('Seleccionaste: '+$(this).attr('data-tokens'));
 	$('#conjuntoBagnes').addClass('hidden');
 	$('#conjuntoBagnes2').removeClass('hidden');
+});
+$('.mascotaPersCliente').click(function () {
+	window.location='paciente.php';
 });
 </script>
 
