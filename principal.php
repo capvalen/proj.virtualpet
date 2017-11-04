@@ -6,13 +6,15 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/estilos.css?version=1.0.10">
+	<link rel="stylesheet" href="css/estilos.css?version=1.0.29">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/icofont.css">
 	<link rel="stylesheet" href="css/colormaterial.css">
 	<link rel="stylesheet" href="css/menuLeftDeslizable.css?version=1.2.1">
-	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"> <!-- extraído de: https://eonasdan.github.io/bootstrap-datetimepicker/-->
-	<link href="css/bootstrap-select.min.css" rel="stylesheet"> <!-- extraido de: https://silviomoreto.github.io/bootstrap-select/-->
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"> <!-- extraído de: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<link href="css/animate.css" rel="stylesheet">
+
+	<link href="css/bootstrap-select.min.css" rel="stylesheet"> <!-- extraido de: https://silviomoreto.github.io/bootstrap-select/ -->
 
 </head>
 <body>
@@ -37,7 +39,7 @@
 		  <input type="text" class="form-control" style="border: 0px solid #ccc;" id="txtBuscarTermino" placeholder="Buscar por nombre, Dni, N° HC, Tlf.">
 		</div>
 		<button class="btn btn-default" id="btnBuscarGeneral"><i class="fa fa-search" aria-hidden="true"></i></button>
-		<button class="btn btn-default" id="btnAddNewGeneral"><i class="fa fa-user-plus" aria-hidden="true"></i></button>
+		<button class="btn btn-default btnAddNewGeneral" id=""><i class="fa fa-user-plus" aria-hidden="true"></i></button>
 	  </div>
 	 
 	</div><!-- /.navbar-collapse -->
@@ -59,7 +61,7 @@
 			<a href="#grupoClientes" data-toggle="collapse" aria-expanded="false"><i class="icofont icofont-cubes"></i> Clientes</a>
 			<ul class="collapse list-unstyled" id="grupoClientes">
 				<li><a href="#">Nueva cita</a></li>
-				<li><a href="#">Nuevo cliente</a></li>
+				<li><a href="#!" class="btnAddNewGeneral">Nuevo cliente</a></li>
 				<li><a href="#">Administrar clientes</a></li>
 				<li><a href="#">Cuentas pendientes</a></li>
 			</ul>
@@ -98,7 +100,7 @@
 			</ul>
 		</li>
 		<li> <a href="#"><i class="icofont icofont-flag"></i> Acerca de...</a> </li>
-		<li> <a href="#"><i class="icofont icofont-plugin"></i> Salir</a> </li>
+		<li> <a href="#" id="btnSalirSistema"><i class="icofont icofont-plugin"></i> Salir</a> </li>
 		
 	</ul>
 
@@ -242,16 +244,18 @@
 
 </div>
 
+<?php include 'php/llamandoModals.php'; ?>
 
 <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/accionesGlobales.js?version=1.0.1"></script>
+<script type="text/javascript" src="js/accionesGlobales.js?version=1.0.10"></script>
 <script type="text/javascript" src="js/moment.js"></script>
 <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
 
 <script type="text/javascript">
+datosUsuario();
 $(document).ready(function () {
 	// $('.selectpicker').selectpicker('render');
 });

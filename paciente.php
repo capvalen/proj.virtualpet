@@ -6,11 +6,11 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/estilos.css?version=1.0.18">
+	<link rel="stylesheet" href="css/estilos.css?version=1.0.25">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/icofont.css">
 	<link rel="stylesheet" href="css/colormaterial.css">
-	<link rel="stylesheet" href="css/menuLeftDeslizable.css?version=1.2.1">
+	<link rel="stylesheet" href="css/menuLeftDeslizable.css?version=1.2.2">
 	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"> <!-- extraído de: https://eonasdan.github.io/bootstrap-datetimepicker/-->
 	<link href="css/bootstrap-select.min.css" rel="stylesheet"> <!-- extraido de: https://silviomoreto.github.io/bootstrap-select/-->
 	 <!-- Línea de tiempo y liston extraidos de: 
@@ -63,7 +63,7 @@
 			<a href="#grupoClientes" data-toggle="collapse" aria-expanded="false"><i class="icofont icofont-cubes"></i> Clientes</a>
 			<ul class="collapse list-unstyled" id="grupoClientes">
 				<li><a href="#">Nueva cita</a></li>
-				<li><a href="#">Nuevo cliente</a></li>
+				<li><a href="#!" class="btnAddNewGeneral">Nuevo cliente</a></li>
 				<li><a href="#">Administrar clientes</a></li>
 				<li><a href="#">Cuentas pendientes</a></li>
 			</ul>
@@ -111,47 +111,89 @@
 <div class="col-xs-12 col-sm-8 col-md-9 divPrincipalCent">
 	<div class="">
 		<div class="todosAnimalesDeCliente">
-			<!-- <div class="mascotaPersCliente row mascotaNew">
-				<div class="col-xs-2">
-					<button class="btn btn-circle-grande btn-success" style="padding-top: -5px"><i class="icofont icofont-paw"></i></button>
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tabHistoriaClinica" data-toggle="tab">Historia Clínica</a></li>				
+			<li ><a href="#tabHistorialCompras" data-toggle="tab">Historial de compras</a></li>
+		</ul>
+		<div class="tab-content">
+			
+			<div class="tab-pane fade in active container-fluid" id="tabHistoriaClinica">
+				<!-- inicio de tab 2 -->
+				<div class="row text-center" style="padding-top: 15px">
+					<span class="btn-group btnGrupoBotones">
+						<button class="btn btn-success btn-outline dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-stethoscope" aria-hidden="true"></i> Nueva atención <i class="fa fa-caret-down" aria-hidden="true"></i></button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#"><i class="icofont icofont-prescription"></i> Nueva consulta</a></li>
+							<li><a href="#"><i class="icofont icofont-injection-syringe"></i> Vacunas</a></li>
+							<li><a href="#"><i class="icofont icofont-bathtub"></i> Spa </a></li>
+							<li><a href="#"><i class="icofont icofont-bathtub"></i> Peinado</a></li>
+							<li><a href="#"><i class="icofont icofont-injection-syringe"></i> Antiparasitario</a></li>
+							<li><a href="#"><i class="icofont icofont-injection-syringe"></i> Antipulgas</a></li>
+							<li><a href="#"><i class="icofont icofont-dna"></i> Ecografía</a></li>
+							<li><a href="#"><i class="icofont icofont-dna"></i> Rayos X</a></li>
+							<li><a href="#"><i class="icofont icofont-laboratory"></i> Análisis clínico</a></li>
+							<li><a href="#"><i class="icofont icofont-heartbeat"></i> Hospitalización</a></li>
+							<li><a href="#"><i class="icofont icofont-blood-drop"></i> Cirugía</a></li>
+						</ul>	
+					</span>
+					<button class="btn btn-primary btn-outline"><i class="fa fa-comments-o" aria-hidden="true"></i> Nota nueva</button>
+					<button class="btn btn-default btn-outline"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Adjuntar archivos</button>
+					<button class="btn btn-warning btn-outline"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Agenda médica</button>
 				</div>
-				<div class="col-xs-6"><h3 style="padding-top: 15px">Agregar nuevo paciente</h3> 
-				</div>
-			</div> -->
-			<div class="container-fluid">
-			<ul class="timeline">
+				<ul class="timeline">
 				<div class="ribbon-content">
 					<div class="ribbon red"><span>Lunes 25 de Noviembre</span></div>
 				</div>
 				<li class="timeline-inverted">
-				  <div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
+				  <div class="timeline-badge primary"><i class="fa fa-file-text-o" aria-hidden="true"></i></div>
 				  <div class="timeline-panel">
 					<div class="timeline-heading">
 					  <h4 class="timeline-title blue-text text-darken-1">Consulta</h4>
-					  <p class="pull-right">
-						<span class="blue-text text-darken-1 mitooltip" title="Dr. Carlos Orihuela Damas"><i class="fa fa-user-md" aria-hidden="true"></i></span>
-						<span class="blue-text text-darken-1 mitooltip" title="25/10/2017 9:35 p.m."><i class="fa fa-clock-o" aria-hidden="true"></i> <span style="color: #bfbcbc">9:35 p.m.</span></span>
-					  </p>
+					  <span class="pull-right spanConjuntoBotonesHC">
+						<span class="blue-text text-darken-1 mitooltip elemTituloHC" title="Dr. Carlos Orihuela Damas"><i class="fa fa-user-md" aria-hidden="true"></i></span>
+						<span class="blue-text text-darken-1 mitooltip elemTituloHC" title="25/10/2017 9:35 p.m."><i class="fa fa-clock-o" aria-hidden="true"></i> <span style="color: #bfbcbc">9:35 p.m.</span></span>
+						<span class="btn-group btnGrupoBotones">
+							<button class="btn btn-xs btn-default btn-outline blue-text text-darken-1 mitooltip elemTituloHC dropdown-toggle" data-toggle="dropdown" title="Acciones"><i class="fa fa-cog" aria-hidden="true"></i></button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#"><i class="fa fa-usd" aria-hidden="true"></i> Facturar</a></li>
+								<li><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a></li>
+								<li><a href="#"><i class="fa fa-paperclip" aria-hidden="true"></i> Adjuntar un archivo</a></li>
+								<li class="divider"></li>
+								<li><a href="#"><i class="fa fa-times" aria-hidden="true"></i> Eliminar</a></li>
+							</ul>
+						</span>
+					  </span>
 					</div>
-					<div class="timeline-body">
-					  <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+					<div class="timeline-body" >
+					  <p>Anamnesis y Descripción:</p>
+						<p class="resppuestaHCConsulta">El cliente refiere que la mascota está vomitando hace 2 días, no tiene apetito y tampoco toma agua</p>
+					  <p>Exámen clínico:</p>
+						<p class="resppuestaHCConsulta">Abdomen abultado, ictericia, dolor a la palmación abdominal</p>
+					  <p>Constantes:</p>
+						<p class="resppuestaHCConsulta">T°: 9.5 °C / FC: 80.00 LPM</p>
+					  <p>Diagnóstico:</p>
+						<p class="resppuestaHCConsulta"><strong>Cuerpo extraño</strong></p>
+					  <p>Pruebas auxiliares requeridas:</p>
+						<p class="resppuestaHCConsulta">Ecografía abdominal</p>
+					  <p>Tratamiento:</p>
+						<p class="resppuestaHCConsulta">Metoclopramida (indicaciones)</p>
 					</div>
 				  </div>
 				</li>
 				<li class="timeline-inverted">
-				  <div class="timeline-badge primary"><i class="glyphicon glyphicon-credit-card"></i></div>
+				  <div class="timeline-badge warning"><i class="fa fa-comments-o" aria-hidden="true"></i></div>
 				  <div class="timeline-panel">
 					<div class="timeline-heading">
-					  <h4 class="timeline-title">Segundo item</h4>
+					  <h4 class="timeline-title yellow-text text-darken-3">Nota extra</h4>
 					</div>
 					<div class="timeline-body">
-					  <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
-					  <p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.</p>
+					  <p>Mussum ipsum cacilds, vidistis. Pra lá ,  quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+					  <p>Suco eo ersa.</p>
 					</div>
 				  </div>
 				</li>
 				<div class="ribbon-content">
-					<div class="ribbon red"><span>Lunes 24 de Noviembre</span></div>
+					<div class="ribbon red"><span>Lunes 20 de Noviembre</span></div>
 				</div>
 				
 				<li class="timeline-inverted">
@@ -167,16 +209,24 @@
 				  </div>
 				</li>
 			   
-			</ul>
-</div>
-		</div>
+				</ul>
+			</div> <!-- fin de tab 1 -->
+			<!-- inicio de tab 1 -->
+			<div class="tab-pane fade container-fluid" id="tabHistorialCompras">
+				1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, enim, necessitatibus laboriosam qui atque earum expedita autem fugit neque impedit repudiandae quos eius molestiae sequi ea. Praesentium, labore aperiam dolorum.
+			</div><!-- fin de tab 2 -->
+		</div> <!-- fin de tabcontent -->
+			
+
+
+		</div> <!-- Fin de div todosAnimalesDeCliente -->
 	</div>
 
 
 </div>
 <div class="col-xs-12 col-sm-4 col-md-3  divPrincipalDere panelMascoto">
 	<img src="images/perros/peruano.jpg" class="img-responsive img-circle imgAnimalPa" alt="">
-	<span class="text-center" style="display: block;"><h3><i class="icofont icofont-animal-dog"></i> <i class="fa fa-venus" aria-hidden="true"></i></h3><h3 class="text-center">Chispitas</h3></span>
+	<span class="text-center" style="display: block;"><h3><i class="icofont icofont-animal-dog"></i> <i class="fa fa-venus" aria-hidden="true"></i></h3><h3 class="text-center">Chispitas</h3> <button class="btn  btn-default btn-outline blue-text text-darken-1 mitooltip" id="btnEditarDatosMascot" title="" data-original-title="Acciones"><i class="fa fa-pencil" aria-hidden="true"></i></button></span>
 	<br>
 	<div class="datosAnimalGenerados">
 		<div class="col-xs-12"><p><strong>Código Interno: #250</strong></p></div>
@@ -252,6 +302,7 @@ $('#cmbActividadVet').on('click','.optActividadVeter',function () {
 $('#btnFinalizarAtencion').click(function () {
 	window.location='cliente.php'
 });
+
 </script>
 
 </body>

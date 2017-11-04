@@ -1,3 +1,19 @@
+<?php 
+session_start();
+if (@!$_SESSION['Atiende']){//sino existe enviar a index
+	header("Location:index.php");
+}
+else{
+	if (@!$_GET['idCliente']){//sino existe enviar a index
+	header("Location:principal.php");
+	}else{
+		require("php/conectkarl.php");
+		$sql = mysqli_query($conection,"call listarDatosCliente(".$_GET['idCliente'].");");
+		$row = mysqli_fetch_array($sql, MYSQLI_ASSOC);	
+		mysqli_close($conection); //desconectamos la base de datos
+	}
+}
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -6,7 +22,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/estilos.css?version=1.0.15">
+	<link rel="stylesheet" href="css/estilos.css?version=1.0.30">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/icofont.css">
 	<link rel="stylesheet" href="css/colormaterial.css">
@@ -40,6 +56,7 @@
 		  <input type="text" class="form-control" style="border: 0px solid #ccc;" id="txtBuscarTermino" placeholder="Buscar por nombre, Dni, N° HC, Tlf.">
 		</div>
 		<button class="btn btn-default" id="btnBuscarGeneral"><i class="fa fa-search" aria-hidden="true"></i></button>
+		<button class="btn btn-default btnAddNewGeneral" id=""><i class="fa fa-user-plus" aria-hidden="true"></i></button>
 	  </div>
 	 
 	</div><!-- /.navbar-collapse -->
@@ -61,7 +78,7 @@
 			<a href="#grupoClientes" data-toggle="collapse" aria-expanded="false"><i class="icofont icofont-cubes"></i> Clientes</a>
 			<ul class="collapse list-unstyled" id="grupoClientes">
 				<li><a href="#">Nueva cita</a></li>
-				<li><a href="#">Nuevo cliente</a></li>
+				<li><a href="#!" class="btnAddNewGeneral">Nuevo cliente</a></li>
 				<li><a href="#">Administrar clientes</a></li>
 				<li><a href="#">Cuentas pendientes</a></li>
 			</ul>
@@ -109,14 +126,15 @@
 	<div class="divPrincCabecera text-center">
 	</div>
 	<div class="divPricFlotante text-center noselect">
-		<img src="images/clientes/repre_adulto.png?version=0.1" alt="" class="img-responsive imgPanel">
+		<img src="images/clientes/repre_adulto.png?version=0.1" alt="" class="img-responsive imgPanel" id="imgClienteDef">
 		<div class="dataCliente">
-			<h3 class="pNomCliente text-center">Pariona Valencia, Carlos Alex</h3>
-			<p class="pEdadCliente">30 años</p>
-			<p class="pDniCliente">44475064</p>
-			<p class="pDireccionCliente">Av. Huancavelica 435</p>
-			<p class="pCelularCliente">#977-692108</p>
-			<p class="pTelefonoCliente">064-259905</p>
+			<h3 class="pNomCliente text-center mayuscula"><?php echo $row['cliApellidos']. ', '. $row['cliNombres'] ?></h3>
+			<p class="pEdadCliente"></p> <span class="hidden" id="hiddFechNac"><?php echo $row['cliFechaNacimiento'] ?></span> <span class="hidden" id="cliEdadSimple"></span> <span class="hidden" id="hiddSexo"><?php echo $row['cliSexo'] ?></span>
+			<p class="pDniCliente"><?php echo $row['cliDni'] ?></p>
+			<p class="pDireccionCliente mayuscula"><?php echo $row['cliDireccion'] ?></p>
+			<?php if( $row['cliCelular'] !='') { ?><p class="pCelularCliente">Cel: <?php echo $row['cliCelular'] ?></p> <?php } ?>
+			<?php if( $row['cliTelefono'] !='') { ?><p class="pTelefonoCliente">Cel: <?php echo $row['cliTelefono'] ?></p> <?php } ?>
+			<?php if( $row['cliCorreo'] !='') { ?><p class="pCorreoCliente">Cel: <?php echo $row['cliCorreo'] ?></p> <?php } ?>
 		</div>
 	</div>
 </div>
@@ -124,7 +142,7 @@
 	<div class="panel bs-callout bs-callout-success panel-sombreado" style="margin-bottom: 10px;">
 		<div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#ActividadCliente" aria-expanded="true" aria-controls="ActividadCliente">
 		  <h4 class="panel-title">
-			  <strong class="mayusculas">Actividad del Cliente</strong> <small>Última visita: <span class="lblTiempoCita">hace 7 días</span></small>
+			  <strong class="mayuscula">Actividad del Cliente</strong> <small>Última visita: <span class="lblTiempoCita">hace 7 días</span></small>
 		  </h4>
 		</div>
 		<div id="ActividadCliente" class="panel-collapse collapse in" role="tabpanel" aria-expanded="true" style="">
@@ -137,7 +155,7 @@
   	<div class="panel bs-callout bs-callout-danger panel-sombreado" style="margin-bottom: 10px;">
 		<div class="panel-heading collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#DeudasCliente" aria-expanded="false" aria-controls="DeudasCliente">
 		  <h4 class="panel-title">
-			  <strong class="mayusculas">Deudas</strong> <small>S/. <span class="lblTiempoCita">85.00</span></small>
+			  <strong class="mayuscula">Deudas</strong> <small>S/. <span class="lblTiempoCita">85.00</span></small>
 		  </h4>
 		</div>
 		<div id="DeudasCliente" class="panel-collapse collapse" role="tabpanel" aria-expanded="true" style="">
@@ -149,7 +167,7 @@
   	</div>
 	<div class="deep-purple-text text-lighten-1">
 		<div class="todosAnimalesDeCliente">
-			<div class="mascotaPersCliente row mascotaNew">
+			<div class="row mascotaNew">
 				<div class="col-xs-2">
 					<button class="btn btn-circle-grande btn-success" style="padding-top: -5px"><i class="icofont icofont-paw"></i></button>
 				</div>
@@ -166,7 +184,7 @@
 					<button class="btn btn-circle btn-rojoFresa btn-outline pull-right mitooltip" title="Eliminar paciente"><i class="icofont icofont-heart-beat"></i></button>
 					<button class="btn btn-circle btn-negro btn-outline pull-right mitooltip" title="Cambiar de dueño"><i class="icofont icofont-random"></i></button>
 					<button class="btn btn-circle btn-success btn-outline pull-right mitooltip" title="Nueva atención"><i class="icofont icofont-stethoscope-alt"></i></button>
-					<button class="btn btn-circle btn-morado btn-outline pull-right mitooltip" title="Ver historia clínica"><i class="icofont icofont-file-alt"></i></button>
+					<button class="btn btn-circle btn-morado btn-outline pull-right mitooltip" title="Ver perfil de paciente"><i class="icofont icofont-file-alt"></i></button>
 				</div>
 			</div>
 			<div class="mascotaPersCliente row">
@@ -179,7 +197,7 @@
 					<button class="btn btn-circle btn-rojoFresa btn-outline pull-right mitooltip" title="Eliminar paciente"><i class="icofont icofont-heart-beat"></i></button>
 					<button class="btn btn-circle btn-negro btn-outline pull-right mitooltip" title="Cambiar de dueño"><i class="icofont icofont-random"></i></button>
 					<button class="btn btn-circle btn-success btn-outline pull-right mitooltip" title="Nueva atención"><i class="icofont icofont-stethoscope-alt"></i></button>
-					<button class="btn btn-circle btn-morado btn-outline pull-right mitooltip" title="Ver historia clínica"><i class="icofont icofont-file-alt"></i></button>
+					<button class="btn btn-circle btn-morado btn-outline pull-right mitooltip" title="Ver perfil de paciente"><i class="icofont icofont-file-alt"></i></button>
 				</div>
 			</div>
 			<div class="mascotaPersCliente row">
@@ -192,7 +210,7 @@
 					<button class="btn btn-circle btn-rojoFresa btn-outline pull-right mitooltip" title="Eliminar paciente"><i class="icofont icofont-heart-beat"></i></button>
 					<button class="btn btn-circle btn-negro btn-outline pull-right mitooltip" title="Cambiar de dueño"><i class="icofont icofont-random"></i></button>
 					<button class="btn btn-circle btn-success btn-outline pull-right mitooltip" title="Nueva atención"><i class="icofont icofont-stethoscope-alt"></i></button>
-					<button class="btn btn-circle btn-morado btn-outline pull-right mitooltip" title="Ver historia clínica"><i class="icofont icofont-file-alt"></i></button>
+					<button class="btn btn-circle btn-morado btn-outline pull-right mitooltip" title="Ver perfil de paciente"><i class="icofont icofont-file-alt"></i></button>
 				</div>
 			</div>
 		</div>
@@ -311,17 +329,32 @@
 
 </div>
 
+<?php include 'php/llamandoModals.php' ?>
+
 
 <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/accionesGlobales.js?version=1.0"></script>
+<script type="text/javascript" src="js/accionesGlobales.js?version=1.0.11"></script>
 <script type="text/javascript" src="js/moment.js"></script>
 <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-select.min.js?version=1.0.1"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function () {
+
+	$('.pEdadCliente').text( calcularFechaAnioMes($('#hiddFechNac').text() ) );
+	datosUsuario();
+	var datoSexo=$('#hiddSexo').text();
+	var edadCliente=$('#cliEdadSimple').text();
+	if(datoSexo==0 && edadCliente<=16 ){ $('#imgClienteDef').attr('src', 'images/clientes/repre_nina.png')}
+	else if(datoSexo==0 && edadCliente>16 && edadCliente<=40 ){ $('#imgClienteDef').attr('src', 'images/clientes/repre_adulta.png')}
+	else if(datoSexo==0 && edadCliente>40 ){ $('#imgClienteDef').attr('src', 'images/clientes/repre_mayora.png')}
+
+	if(datoSexo==1 && edadCliente<=16 ){ $('#imgClienteDef').attr('src', 'images/clientes/repre_nino.png')}
+	else if(datoSexo==1 && edadCliente>16 && edadCliente<=40 ){ $('#imgClienteDef').attr('src', 'images/clientes/repre_adulto.png?version=1.0.1')}
+	else if(datoSexo==1 && edadCliente>40 ){ $('#imgClienteDef').attr('src', 'images/clientes/repre_mayor.png')}
+
 	$('.mitooltip').tooltip();
 	// $('.selectpicker').selectpicker('render');
 
@@ -368,6 +401,7 @@ $('#cmbActividadVet').on('click','.optActividadVeter',function () {
 $('.mascotaPersCliente').click(function () {
 	window.location='paciente.php';
 });
+$('.mascotaNew').click(function () { $('.modal-ingresarMascotaNueva').modal('show'); });
 </script>
 
 </body>
