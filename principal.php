@@ -105,7 +105,7 @@
 	</ul>
 
 </nav>
-<div class="col-xs-12 col-sm-4 col-md-3 divPrincipalIzq">
+<div class="col-xs-12 col-sm-12 col-md-3 divPrincipalIzq">
 	<div class="divPrincCabecera">	
 	</div>
 	<div class="divPricFlotante text-center noselect">
@@ -119,7 +119,7 @@
 		<p class="pCelVeterinaria">Administrador</p>
 	</div>
 </div>
-<div class="col-xs-12 col-sm-8 col-md-6 divPrincipalCent">
+<div class="col-xs-12 col-sm-12 col-md-6 divPrincipalCent">
 	<h4 class="text-center" id="holaHoy">Resumen de hoy <small>Martes, 25 de Octubre 2017</small></h4>
 	
 	<div class="cuadroResFrontal blue-text"><h3 class="blue-text"><i class="fa fa-address-book-o" aria-hidden="true"></i> 5</h3><p>Visitas</p></div>
@@ -132,7 +132,7 @@
 
 
 </div>
-<div class="col-xs-12 col-sm-4 col-md-3 divPrincipalDere">
+<div class="col-xs-12 col-sm-12 col-md-3 divPrincipalDere">
 	<div class="oscuroBuscar"></div>
 	<h4 class="text-center" id="cambiarAgenCalendario">Agenda</h4>
 	<div class="container-fluid noselect" id="cuadroResumenActividades">
@@ -248,7 +248,7 @@
 
 <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/accionesGlobales.js?version=1.0.10"></script>
+<script type="text/javascript" src="js/accionesGlobales.js?version=1.0.12"></script>
 <script type="text/javascript" src="js/moment.js"></script>
 <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-select.min.js"></script>

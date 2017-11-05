@@ -27,7 +27,9 @@ $(document).ready(function () {
 $(function () {
 	$('#datetimepicker12').datetimepicker({ inline: true, sideBySide: false, format: 'LL', locale: 'es'});
 	$('#dtpCliFechaNacimiento').datetimepicker({ format: 'DD/MM/YYYY', locale: 'es'});
-	$('#dtpCliFechaNacimiento').data("DateTimePicker").maxDate('03/11/2017');
+	$('#dtpCliFechaNacimiento').data("DateTimePicker").maxDate(moment().format('DD/MM/YYYY'));
+	$('#dtpMascFechaNacimiento').datetimepicker({ format: 'DD/MM/YYYY', locale: 'es'});
+	$('#dtpMascFechaNacimiento').data("DateTimePicker").maxDate(moment().format('DD/MM/YYYY'));
 });
 
 function datosUsuario(){
@@ -51,8 +53,23 @@ function buscarTermino() {
 	$('#conjuntoBagnes').addClass('hidden');
 	$('#conjuntoBagnes2').removeClass('hidden');
 	var texto=$('#txtBuscarTermino').val();
-	if(texto.length!=0){
-		console.log('hola')
+	if(texto.length>3){
+		//console.log('hola')
+		$.ajax({url:'php/buscarClienteNombre.php', type: 'POST', data: {campo:texto}}).done(function (resp) { console.log(resp)
+			if(JSON.parse(resp).length>0){
+				$.each(JSON.parse(resp), function (i, dato) {
+					$('#tbodyResultBusqueda').append(`<tr>
+							<th scope="row">${i+1}</th>
+							<td class="mayuscula">${dato.cliApellidos.toLowerCase()} ${dato.cliNombres.toLowerCase()}</td>
+							<td>${dato.cliDni}</td>
+							<td>${dato.cliCelular} / ${dato.cliTelefono}</td>
+							<td class="idCliente hidden">${dato.idCliente}</td>
+							<td><a class="btn btn-sm btn-success" href="cliente.php?idCliente=${dato.idCliente}" role="button">Ver <span class="glyphicon glyphicon-user"></span></a></td>
+						</tr>`);
+				});
+			}
+			$('.modal-resultadosBusqueda').modal('show');
+		});
 	}
 }
 $('.modal-ingresarMascotaNueva').on('click','.optEspecie',function () {
@@ -158,3 +175,23 @@ $('#btnRegistrarPaciente').click(function () {
 	}
 
 });
+$('#dtpMascFechaNacimiento').on('dp.change', function () {
+	var campoTex='';
+	var hoy=moment();
+	var dtpFecha=moment( $('#dtpMascFechaNacimiento ').find('input').val(), 'DD/MM/YYYY');
+	var añosDif=hoy.diff(dtpFecha, 'years');
+	dtpFecha=dtpFecha.add(añosDif, 'years');
+	var mesesdif=hoy.diff(dtpFecha, 'months');
+	dtpFecha=dtpFecha.add(mesesdif, 'months');
+	var diasdif=hoy.diff(dtpFecha, 'days');
+
+	//console.log( añosDif + ' / ' + mesesdif+ ' / ' +  diasdif)
+	if(añosDif!=0 && añosDif!=1){campoTex+= añosDif + ' años, ';}
+	else if(añosDif==1){campoTex+= añosDif + ' año, ';}
+	if(mesesdif!=0 && mesesdif!=1){campoTex+= mesesdif + ' meses, ';}
+	else if(mesesdif==1){campoTex+= mesesdif + ' mes, ';}
+	if(diasdif!=0 && diasdif!=1) {campoTex+= diasdif + ' días.';}
+	else if( diasdif==1){campoTex+= diasdif + ' día.';}
+	$('#ayudaEdadPaciente').text(campoTex);
+
+})

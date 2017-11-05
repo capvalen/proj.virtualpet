@@ -122,23 +122,23 @@ else{
 	</ul>
 
 </nav>
-<div class="col-xs-12 col-sm-4 col-md-3 divPrincipalIzq">
+<div class="col-xs-12 col-sm-12 col-md-3 divPrincipalIzq">
 	<div class="divPrincCabecera text-center">
 	</div>
 	<div class="divPricFlotante text-center noselect">
 		<img src="images/clientes/repre_adulto.png?version=0.1" alt="" class="img-responsive imgPanel" id="imgClienteDef">
 		<div class="dataCliente">
-			<h3 class="pNomCliente text-center mayuscula"><?php echo $row['cliApellidos']. ', '. $row['cliNombres'] ?></h3>
+			<h3 class="pNomCliente text-center mayuscula"><?php echo strtolower($row['cliApellidos']). ', '. strtolower($row['cliNombres']) ?></h3>
 			<p class="pEdadCliente"></p> <span class="hidden" id="hiddFechNac"><?php echo $row['cliFechaNacimiento'] ?></span> <span class="hidden" id="cliEdadSimple"></span> <span class="hidden" id="hiddSexo"><?php echo $row['cliSexo'] ?></span>
 			<p class="pDniCliente"><?php echo $row['cliDni'] ?></p>
 			<p class="pDireccionCliente mayuscula"><?php echo $row['cliDireccion'] ?></p>
 			<?php if( $row['cliCelular'] !='') { ?><p class="pCelularCliente">Cel: <?php echo $row['cliCelular'] ?></p> <?php } ?>
 			<?php if( $row['cliTelefono'] !='') { ?><p class="pTelefonoCliente">Cel: <?php echo $row['cliTelefono'] ?></p> <?php } ?>
-			<?php if( $row['cliCorreo'] !='') { ?><p class="pCorreoCliente">Cel: <?php echo $row['cliCorreo'] ?></p> <?php } ?>
+			<?php if( $row['cliCorreo'] !='') { ?><p class="pCorreoCliente">Correo: <?php echo $row['cliCorreo'] ?></p> <?php } ?>
 		</div>
 	</div>
 </div>
-<div class="col-xs-12 col-sm-8 col-md-6 divPrincipalCent">
+<div class="col-xs-12 col-sm-12 col-md-6 divPrincipalCent">
 	<div class="panel bs-callout bs-callout-success panel-sombreado" style="margin-bottom: 10px;">
 		<div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#ActividadCliente" aria-expanded="true" aria-controls="ActividadCliente">
 		  <h4 class="panel-title">
@@ -218,7 +218,7 @@ else{
 
 
 </div>
-<div class="col-xs-12 col-sm-4 col-md-3 divPrincipalDere">
+<div class="col-xs-12 col-sm-12 col-md-3 divPrincipalDere">
 	<h4 class="text-center" id="cambiarAgenCalendario">Agenda</h4>
 	<div class="container-fluid noselect" id="cuadroResumenActividades">
 		<div class="row text-center">
@@ -334,7 +334,7 @@ else{
 
 <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/accionesGlobales.js?version=1.0.11"></script>
+<script type="text/javascript" src="js/accionesGlobales.js?version=1.0.15"></script>
 <script type="text/javascript" src="js/moment.js"></script>
 <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-select.min.js?version=1.0.1"></script>

@@ -4,7 +4,7 @@
 	<div class="modal-content">
 		<div class="modal-header-warning">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<h4 class="modal-title" id="myModalLabel"><i class="icofont icofont-animal-squirrel"></i> Paciente nuevo</h4>
+			<h4 class="modal-title" id="myModalLabel"><i class="icofont icofont-animal-squirrel"></i> Cliente nuevo</h4>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
@@ -26,16 +26,16 @@
 			<div class="row">
 				<div class="col-xs-3">
 					<label for=""><span class="red-text text-accent-4">*</span> Fecha de Nacimiento</label>
-			        <div class="form-group">
-			            <div class='input-group date' id='dtpCliFechaNacimiento'>
-			                <input type='text' class="form-control text-center" />
-			                <span class="input-group-addon">
-			                    <span class="fa fa-calendar">
-			                    </span>
-			                </span>
-			            </div>
-			        </div>
-			    </div>
+					<div class="form-group">
+						<div class='input-group date' id='dtpCliFechaNacimiento'>
+							<input type='text' class="form-control text-center" />
+							<span class="input-group-addon">
+								<span class="fa fa-calendar">
+								</span>
+							</span>
+						</div>
+					</div>
+				</div>
 
 				<div class="col-xs-6">
 					<label for=""><span class="red-text text-accent-4">*</span> Dirección</label>
@@ -100,6 +100,22 @@
 					<select class="selectpicker mayuscula" id="selectRaza" title="Raza..." data-width='100%' data-live-search="true" disabled="">
 					</select>
 				</div>
+				<div class="col-xs-3">
+					<label for=""><span class="red-text text-accent-4">*</span> Fecha Nacimiento</label>
+					<div class="">
+						<div class='input-group date' id='dtpMascFechaNacimiento'>
+							<input type='text' class="form-control text-center" />
+							<span class="input-group-addon">
+								<span class="fa fa-calendar">
+								</span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<label for="">Edad:</label>
+					<p id="ayudaEdadPaciente"></p>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-3">
@@ -161,5 +177,34 @@
 			<button class="btn btn-danger btn-outline" data-dismiss="modal" ><i class="icofont icofont-close"></i> Cancelar</button>
 			<button class="btn btn-primary btn-outline" id="btnRegistrarPaciente"><div class="fa-spin sr-only"><i class="icofont icofont-spinner"></i> </div><i class="icofont icofont-social-meetme"></i> Registrar paciente</button></div>
 	</div>
+	</div>
+</div>
+
+<!--Modal Para mostrar los resultados de la búsqueda-->
+<div class="modal fade modal-resultadosBusqueda" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header-warning">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close" ><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-tittle">Resultados de la búsqueda</h4>
+			</div>
+			<div class="modal-body">
+				<p>Se encontró <strong></strong> coincidencias</p>
+				<table class="table table-condensed tablita">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Apellidos y nombres</th>
+							<th>Dni</th>
+							<th>Tfl</th>
+							<th>@</th>
+						</tr>
+					</thead>
+					<tbody id="tbodyResultBusqueda">
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>
