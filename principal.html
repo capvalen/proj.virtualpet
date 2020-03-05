@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" type="image/png" href="images/peto.png" sizes="32x32">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/sidebar.css?version=1.0.01">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> <!--Extraido de: https://ionicons.com/ -->
+		<link rel="stylesheet" href="css/icofont.min.css?version=1.0.1.2">
+		<link rel="stylesheet" href="css/easy-autocomplete.min.css?version=1.0.1.2">
+
+    <title>Virtual Pet</title>
+</head>
+<body>
+	<style>
+	#contenidoBlanco{
+		background-color: #fff; border-radius: 5px; min-height: 80vh;
+	}
+	.card-body{padding: 0.5rem 1.25rem;}
+	.card-deck i{ font-size: 3rem;}
+	.card-deck h3{ font-size: 1.5rem; color:white}
+	
+	.card-footer{border-color: #dfdfdf!important;}
+	.bg-purple { background-color: #6f42c1; }
+	.bg-purple h4{color: white!important;}
+	.cama{ padding:5px; border: 1px solid #851b9a}
+	#divCamas h2, #divCamas h3{margin-bottom: 0px;}
+	#divCamas h2{font-size: 2.5rem;}
+	.divCama{cursor:pointer;}
+	#btnBuscarReniec{background-color: #003c86; color: #fff;}
+	.noSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+</style>
+<div class="wrapper">
+<!-- Sidebar  -->
+<nav id="sidebar">
+		<div id="dismiss" class="d-flex justify-content-center align-items-center">
+				<i class="icofont-simple-left-down"></i>
+		</div>
+
+		<div class="sidebar-header">
+				<img class="img-fluid" src="images/hotel.png">
+		</div>
+
+		<ul class="list-unstyled components">
+				<p class="text-center"><small>Versión 2.2c</small></p>
+				<li class="active">
+						<a href="#homeSubmenu" class="d-flex align-items-center"><ion-icon name="wallet-sharp"></ion-icon> <span class="liText">Recepción</span></a>
+				</li>
+				<li>
+						<a href="#" class="d-flex align-items-center"><ion-icon name="airplane-sharp"></ion-icon> <span class="liText">Reservas</span></a>
+				</li>
+				<li>
+						<a href="#" class="d-flex align-items-center"><ion-icon name="people-sharp"></ion-icon> <span class="liText">Clientes</span></a>
+				</li>
+				<li>
+						<a href="#" class="d-flex align-items-center"><ion-icon name="cart"></ion-icon> <span class="liText">Caja</span></a>
+				</li>
+				<li>
+					<a href="#" class="d-flex align-items-center"><ion-icon name="gift"></ion-icon> <span class="liText">Productos</span></a>
+				</li>
+				<li>
+						<a href="#" class="d-flex align-items-center"><ion-icon name="car-sport-sharp"></ion-icon> <span class="liText">Cochera</span></a>
+				</li>
+				<li>
+						<a href="#" class="d-flex align-items-center"><ion-icon name="reader-sharp"></ion-icon> <span class="liText">Reportes</span></a>
+				</li>
+				<li>
+						<a href="#" class="d-flex align-items-center"><ion-icon name="options"></ion-icon> <span class="liText">Configuraciones</span></a>
+				</li>
+		</ul>
+</nav>
+<!-- Fin Sidebar  -->
+			
+<!--Barra de Menú-->
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #851b9a">
+	<div class="container-fluid">
+		<button type="button" id="sidebarCollapse" class="btn btn-outline-light tieneMostrar mr-3 px-2" >
+			<i class="icofont-rounded-right-up"></i>
+		</button>
+										
+		<a class="navbar-brand" href="#!" id="btnBrand">
+			<img src="images/logo.png?version=1.0" alt="" width="235" height="auto">
+		</a>
+		<a class="navbar-brand" id="brandTexto">Hotel administración</a>
+		<button class="btn btn-outline-light d-inline-block d-lg-none ml-auto px-2" id="btnSubNavegacion" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="icofont-caret-down"></i>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="nav navbar-nav ml-auto">
+					<li class="nav-item d-none">
+							<a class="nav-link" href="#"><i class="icofont-user-alt-1"></i> Mi perfil</a>
+					</li>
+				
+				<li class="nav-item dropdown ">
+						<a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><ion-icon name="settings"></ion-icon>  <span class="px-2">Opciones</span> </a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown07">
+						<a class="dropdown-item" href="#"><i class="icofont-user-alt-1"></i> Mi perfil</a>
+						<a class="dropdown-item" href="#"><i class="icofont-reply-all"></i> Cerrar sesión</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!--Fin de barra de menú-->
+<div id="app">
+<div id="content" class="px-5 pt-5">
+	<h3><ion-icon name="wallet-sharp"></ion-icon> Recepción</h3>
+	<div id="contenidoBlanco" class="p-3">
+		<!-- Contenido de la Página  -->
+	
+		<div class="container">
+			<div class="card-deck">
+				<div class="card bg-primary text-white">
+					<div class="card-body row">
+						<div class="col-4 d-flex align-items-center"><i class="icofont-bed"></i></div>
+						<div class="col">
+							<small>Libres</small>
+							<h3>8</h3>
+						</div>
+					</div>
+				</div>
+				<div class="card text-white bg-danger">
+					<div class="card-body row">
+						<div class="col-4 d-flex align-items-center"><i class="icofont-hotel"></i></div>
+						<div class="col">
+							<small>Ocupadas</small>
+							<h3>2</h3>
+						</div>
+					</div>
+				</div>
+				<div class="card text-white bg-warning">
+					<div class="card-body row">
+						<div class="col-4 d-flex align-items-center"><i class="icofont-travelling"></i></div>
+						<div class="col">
+							<small>Limpieza</small>
+							<h3>2</h3>
+						</div>
+					</div>
+				</div>
+				<div class="card text-white bg-dark">
+					<div class="card-body row">
+						<div class="col-4 d-flex align-items-center"><i class="icofont-beach-bed"></i></div>
+						<div class="col">
+							<small>Reservaciones</small>
+							<h3>2</h3>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<section>
+			<div class="d-flex align-items-center p-3 my-3 bg-purple rounded">
+				<h4>Registro</h4>
+			</div>
+			<div class="container-fluid" id="divCamas">
+				<div class="row row-cols-2 row-cols-md-5">
+
+					<div class="col p-3" v-for="(cama, index) in camas">
+
+
+
+						<div class="card border-primary divCama" v-if="cama.estado=='libre'" @click="llamarCama(index)">
+							<div class="card-body row">
+								<div class="col d-flex justify-content-center align-items-center">
+									<h2 class="text-primary"><ion-icon name="checkmark-circle-sharp"></ion-icon></h2>
+								</div>
+								<div class="col-9">
+									<h3 class="text-primary">{{cama.habitacion}}</h3>
+									<small class="text-primary">{{cama.descripcion}}</small>
+								</div>
+								
+							</div>
+							<div class="card-footer bg-transparent d-flex justify-content-between"><strong class="text-primary">S/ {{cama.precio}}</strong> <small class="text-primary"><strong>Habitación disponible</strong></small></div>
+						</div>
+
+
+						<div class="card border-danger divCama" v-if="cama.estado=='ocupado'" @click="llamarCama(index)">
+							<div class="card-body row">
+								<div class="col d-flex justify-content-center align-items-center">
+									<h2 class="text-danger"><i class="icofont-hotel"></i></h2>
+								</div>
+								<div class="col-9">
+									<h3 class="text-danger">{{cama.habitacion}}</h3>
+									<small class="text-danger">{{cama.descripcion}}</small>
+								</div>
+								
+							</div>
+							<div class="card-footer bg-transparent d-flex justify-content-between"><strong class="text-danger">S/ {{cama.precio}}</strong> <small class="text-danger"><strong>Habitación Ocupada</strong></small></div>
+						</div>
+
+
+						<div class="card border-secondary divCama" v-if="cama.estado=='reservado'" @click="llamarCama(index)">
+							<div class="card-body row">
+								<div class="col d-flex justify-content-center align-items-center">
+									<h2 class="text-secondary"><i class="icofont-beach-bed"></i></h2>
+								</div>
+								<div class="col-9">
+									<h3 class="text-secondary">{{cama.habitacion}}</h3>
+									<small class="text-secondary">{{cama.descripcion}}</small>
+								</div>
+								
+							</div>
+							<div class="card-footer bg-transparent d-flex justify-content-between"><strong class="text-secondary">S/ {{cama.precio}}</strong> <small class="text-secondary"><strong>Habitación Reservada</strong></small></div>
+						</div>
+
+
+						<div class="card border-warning divCama" v-if="cama.estado=='limpieza'" @click="llamarCama(index)">
+							<div class="card-body row">
+								<div class="col d-flex justify-content-center align-items-center">
+									<h2 class="text-warning"><i class="icofont-travelling"></i></h2>
+								</div>
+								<div class="col-9">
+									<h3 class="text-warning">{{cama.habitacion}}</h3>
+									<small class="text-warning">{{cama.descripcion}}</small>
+								</div>
+								
+							</div>
+							<div class="card-footer bg-transparent d-flex justify-content-between"><strong class="text-warning">S/ {{cama.precio}}</strong> <small class="text-warning"><strong>Habitación por limpiar</strong></small></div>
+						</div>
+
+				</div>
+			</div>
+		</section>
+	
+
+<!-- Modal para cama libre -->
+<div class="modal fade" id="modalLibreInicial" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" :class="{'modal-xl': ocultarBotones, '': !ocultarBotones}" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col" :class="{'col-3': ocultarBotones, 'col': !ocultarBotones}">
+							<h5 class="modal-title pb-3" id="staticBackdropLabel">Habitación {{habNumero}}</h5>
+			        <label for="">Modelo: Habitación Matrimonial</label><br>
+							<label for="">Precio: S/ {{parseFloat(habPrecio).toFixed(2)}}</label><br>
+							<strong  v-if="ocultarBotones==true">
+								<span class="text-secondary" v-if="queMostrar=='reservar'">Reservar habitación</span>
+								<span class="text-danger" v-if="queMostrar=='alquiler'">Asignar alquiler de habitación</span>
+								<span v-if="queMostrar=='productos'">Asignar productos a la habitación</span>
+								<span v-if="queMostrar=='pagos'">Agregar dinero a la habitación</span>
+								<span v-if="queMostrar=='limpieza'">Limpieza</span>
+							</strong>
+							<hr>
+							<div class=" row row-cols-3" v-if="ocultarBotones==false ">
+								<div class="col-12">
+									<strong>Asignar estado:</strong> <br>
+								</div>
+								<div class="col my-2" v-if="habEstado=='ocupado' || habEstado=='reservado'">
+									<button class="btn btn-primary" @click="queMostrar='liberar'; ocultarBotones=!ocultarBotones;"><i class="icofont-bed"></i> Liberar</button>
+								</div>
+								<div class="col my-2" v-if="habEstado=='libre'">
+									<button class="btn btn-danger" @click="queMostrar='alquiler'; ocultarBotones=!ocultarBotones; habDias=1; sumarDias();"><i class="icofont-travelling"></i> Alquilar</button>
+								</div>
+								<div class="col my-2" v-if="habEstado=='libre'">
+									<button class="btn btn-secondary" @click="queMostrar='reservar'; ocultarBotones=!ocultarBotones; habDias=1; sumarDias();"><i class="icofont-beach-bed"></i> Reservar</button>
+								</div>
+								<div class="col my-2" v-if="habEstado=='limpieza'">
+									<button class="btn btn-warning" @click="queMostrar='limpieza'; ocultarBotones=!ocultarBotones; "><i class="icofont-travelling"></i> Habilitar</button>
+								</div>
+								<div class="col my-2" v-if="habEstado=='ocupado' || habEstado=='reservado'">
+									<button class="btn btn-danger" @click="queMostrar='anular'; ocultarBotones=!ocultarBotones;"><ion-icon name="cloud-offline-sharp"></ion-icon> Anular</button>
+								</div>
+							
+								<div class="col-12 row" v-if="habEstado=='ocupado' || habEstado=='reservado'">
+									<div class="col-12">
+										<strong>Items extras:</strong> <br>
+									</div>
+									<div class="col-6 my-2">
+										<button class="btn btn-info" @click="queMostrar='productos'; ocultarBotones=!ocultarBotones; "><i class="icofont-food-basket"></i> Productos</button>
+									</div>
+									<div class="col-6 my-2">
+										<button class="btn btn-success" @click="queMostrar='pagos'; ocultarBotones=!ocultarBotones; "><i class="icofont-card"></i> Pagos</button>
+									</div>
+								</div>
+							</div>
+							
+							<div class="" v-if="ocultarBotones==true ">
+								<button class="btn btn-outline-secondary btn-block" @click="ocultarBotones=!ocultarBotones;"><i class="icofont-simple-left"></i> Regresar</button>
+								<button class="btn btn-outline-success btn-block" v-if="habEstado=='ocupado' || habEstado=='reservado'"><i class="icofont-refresh"></i> Actualizar</button>
+								<button class="btn btn-outline-primary btn-block" v-if="habEstado=='libre'"><ion-icon name="save"></ion-icon> Guardar</button>
+								<button class="btn btn-outline-danger btn-block" v-if="habEstado=='ocupado' || habEstado=='reservado'"><i class="icofont-refresh"></i> Cancelar</button>
+							</div>
+							
+						</div>
+						
+						<div class="col-9" v-if="ocultarBotones==true">
+							<div v-if="ocultarBotones==true && queMostrar=='liberar'">
+								<h3>Habilitar habitación</h3>
+								<strong>Ocupantes:</strong> <br>
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<label for="exampleFormControlSelect1">Adultos</label>
+											<select class="form-control" id="exampleFormControlSelect1" v-model="habAdultos">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+											</select>
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-group">
+											<label for="exampleFormControlSelect1">Niños</label>
+											<select class="form-control" id="exampleFormControlSelect1" v-model="habNinos">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<label for="">Responsable</label>
+								<div class="row row-cols-2 form-group">
+									<div class="col">
+										<div class="input-group mb-3">
+											<input type="text" class="form-control" placeholder="D.N.I." aria-label="D.N.I." aria-describedby="btnBuscarDB" v-model="habDNI">
+											<div class="input-group-append">
+												<button class="btn btn-outline-secondary" type="button" id="btnBuscarDB"><i class="icofont-search-1"></i></button>
+												<button class="btn btn-outline-secondary" type="button" id="btnBuscarReniec"><img src="images/reniec.png" width="20px" alt=""> Reniec</button>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+										<input type="text" class='form-control text-capitalize' placeholder="Apellidos y nombres del cliente" v-model="habResponsable">
+									</div>
+									<div class="col-12">
+										<input type="text" class='form-control text-capitalize' placeholder="Dirección del cliente" v-model="habDireccion">
+									</div>
+								</div>
+						
+			
+								<div class="row row-cols-3">
+									<div class="col form-group">
+										<label for="">Fecha de inicio</label>
+										<input type="date" class='form-control' id="txtFecha" v-model="habComienza" disabled>
+									</div>
+									<div class="col form-group">
+										<label for="">Fecha de salida <small class="text-muted" v-if="habComienza=='' || habComienza=='Invalid date'">No indicaron fecha final</small></label>
+										<input type="date" class='form-control' id="txtHasta" v-model="habTermina" disabled>
+									</div>
+									<div class="col">
+										<label for="">Días de estadía</label>
+										<input type="number" class="form-control" min=1 step=1 :value="diferenciaDias()">
+									</div>
+								</div>
+
+								<hr>
+								<h3>Pagos</h3>
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Hospedaje</th>
+											<th>Productos <a href="#!" @click="queMostrar='productos'" ><ion-icon name="eye-sharp"></ion-icon></a></th>
+											<th>Sub-Total</th>
+											<th>I.G.V.</th>
+											<th>Total</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><span>S/ {{parseFloat(habPrecio).toFixed(2)}}</span></td>
+											<td><span>S/ 25.00</span></td>
+											<td>{{parseFloat((habPrecio+25)-((habPrecio+25)/1.18)).toFixed(2)}}</td>
+											<td>{{parseFloat((habPrecio+25)/1.18).toFixed(2)}}</td>
+											<td>{{parseFloat(habPrecio+25).toFixed(2)}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+
+
+
+							<div v-if="queMostrar=='alquiler' || queMostrar=='reservar'">
+								<strong>Ocupantes:</strong> <br>
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<label for="exampleFormControlSelect1">Adultos</label>
+											<select class="form-control" id="exampleFormControlSelect1" v-model="habAdultos">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+											</select>
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-group">
+											<label for="exampleFormControlSelect1">Niños</label>
+											<select class="form-control" id="exampleFormControlSelect1" v-model="habNinos">
+												<option value="0">0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								
+						
+								<label for="">Responsable</label>
+								<div class="row row-cols-2 form-group">
+									<div class="col">
+										<div class="input-group mb-3">
+											<input type="text" class="form-control" placeholder="D.N.I." aria-label="D.N.I." aria-describedby="btnBuscarDB" v-model="habDNI">
+											<div class="input-group-append">
+												<button class="btn btn-outline-secondary" type="button" id="btnBuscarDB"><i class="icofont-search-1"></i></button>
+												<button class="btn btn-outline-secondary" type="button" id="btnBuscarReniec"><img src="images/reniec.png" width="20px" alt=""> Reniec</button>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+										<input type="text" class='form-control text-capitalize' placeholder="Apellidos y nombres del cliente" v-model="habResponsable">
+									</div>
+									<div class="col-12">
+										<input type="text" class='form-control text-capitalize' placeholder="Dirección del cliente" v-model="habDireccion">
+									</div>
+								</div>
+						
+			
+								<div class="row row-cols-3">
+									<div class="col form-group">
+										<label for="">Fecha de inicio <small class="text-muted" v-if="habComienza=='' || habComienza=='Invalid date'">No indicaron fecha inicial</small></label>
+										<input type="date" class='form-control' id="txtFecha" v-model="habComienza">
+									</div>
+									<div class="col form-group">
+										<label for="">Días de estadía</label>
+										<input type="number" class='form-control' id="txtDias" v-model="habDias" v-on:keyup.enter="sumarDias()" v-on:keyup.up="sumarDias()" v-on:keyup.down="sumarDias()" min="0" step="1">
+									</div>
+									<div class="col form-group">
+										<label for="">Fecha de salida <small class="text-muted" v-if="habComienza=='' || habComienza=='Invalid date'">No indicaron fecha final</small></label>
+										<input type="date" class='form-control' id="txtHasta" v-model="habTermina">
+									</div>
+								</div>
+							</div>
+
+
+							<div v-if="queMostrar=='productos'">
+								
+								<h4>Productos</h4>
+								<label for="">Agregar nuevo producto</label>
+								<input class="w-75 form-control" id="txtProductos" />
+								{{ productosRelleno() }}
+								<label class="py-2" for=""><i class="icofont-cart-alt"></i> Cesta de productos del cliente</label>
+								<table class="table table-sm table-hover" v-if="listaProductos.length>0">
+									<thead class="thead-dark">
+										<tr>
+											<th>N°</th>
+											<th>Producto</th>
+											<th>Cantidad</th>
+											<th>Precio</th>
+											<th>SubTotal</th>
+											<th>Fecha</th>
+											<th>@</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr v-for="(producto, index) in listaProductos">
+											<td>{{index+1}}</td>
+											<td>{{producto.nombre}}</td>
+											<td class="noSelect"><span @click="restarItem(index)" class="text-warning"><i class="icofont-caret-down"></i></span> {{producto.cantidad}} <span @click="sumarItem(index)" class="text-warning"><i class="icofont-caret-up"></i></span></td>
+											<!-- <td><input type="number" class="form-control" :value="producto.cantidad"></td> -->
+											<td>S/ {{parseFloat(producto.precio).toFixed(2)}}</td>
+											<td>S/ {{parseFloat(producto.precio*producto.cantidad).toFixed(2)}}</td>
+											<td>{{producto.fecha}}</td>
+											<td><button class="btn btn-outline-danger border-0 btn-sm" @click="eliminarItem(index)"><i class="icofont-close"></i></button></td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<th>S/ {{sumaProductos}}</th>
+											<td></td>
+										</tr>
+									</tfoot>
+								</table>
+								<p v-else>No hay productos en la cesta</p>
+							</div>
+
+							<div v-if="queMostrar=='limpieza'">
+								<h4>Limpieza</h4>
+								<p>La habitación se encuentra por limpiar hace <span class="font-italic">25 minutos</span></p>
+								<p>¿Deseas cambiar el estado a diponible?</p>
+								<button class="btn btn-outline-primary ml-3" @click="habilitarCuarto(idCuarto)"><i class="icofont-check-circled"></i> Sí, listo</button>
+								<button class="btn btn-outline-danger" @click="ocultarBotones=!ocultarBotones;"><i class="icofont-close-circled"></i> Aún no</button>
+							</div>
+							<div v-if="queMostrar=='anular'">
+								<h4>Anular</h4>
+								<p>La habitación se encuentra ocupada/reservada aún.</p>
+								<p>¿Deseas cambiar el estado a diponible? Puedes agregar algún motivo:</p>
+								<input type="text" class="form-control" placeholder='Motivo de anulación'><br>
+								<button class="btn btn-outline-primary ml-3" @click="habilitarCuarto(idCuarto)"><i class="icofont-check-circled"></i> Listo, anular</button>
+								<button class="btn btn-outline-danger" @click="ocultarBotones=!ocultarBotones;"><i class="icofont-close-circled"></i> Aún no</button>
+							</div>
+							<div v-if="queMostrar=='anular'">
+								<h4>Pagos</h4>
+								<p>Sección para pagos</p>
+								<p>Deuda: <span>S/ 25.00</span></p>
+								<p>Productos: <span>S/ 10.00</span></p>
+								<button class="btn btn-outline-primary ml-3" @click="ocultarBotones=!ocultarBotones;"><i class="icofont-check-circled"></i> Listo, anular</button>
+								<button class="btn btn-outline-danger" @click="ocultarBotones=!ocultarBotones;"><i class="icofont-close-circled"></i> Aún no</button>
+							</div>
+			
+						
+						</div>
+					</div>
+				</div>
+				
+
+      </div>
+    </div>
+  </div>
+</div>
+	    
+	<!-- Fin de Contenido de la Página  -->
+	</div>
+</div>
+</div>
+
+<!-- Inicio de #wrapper  -->
+</div>
+<div class="overlay"></div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/inicializacion.js"></script>
+<script src="js/jquery.easy-autocomplete.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    camas:[
+		{habitacion: 101, descripcion: 'Habitación Simple', precio: 25, estado: 'libre', dni:'', cliente: '', direccion:'', personas: 0, niños: 0, fecha: '', hasta: ''},
+		{habitacion: 102, descripcion: 'Habitación Doble', precio: 25, estado: 'libre', dni:'', cliente: '', direccion:'', personas: 0, niños: 0, fecha: '', hasta: ''},
+		{habitacion: 103, descripcion: 'Habitación doble', precio: 35, estado: 'ocupado', dni:'44475064', cliente: 'Carlos Pariona Valencia', direccion:'Av. Huancavelica 435 - El Tambo Hyo', personas: 2, niños: 1, fecha: '2020-02-20 11:15', hasta: '2020-02-23 12:00'},
+		{habitacion: 104, descripcion: 'Habitación con Jacuzzi', precio: 35, estado: 'reservado', dni:'', cliente: 'Sin datos', direccion:'', personas: 2, niños: 0, fecha: '2020-02-20 00:00', hasta: '2020-02-23 17:18'},
+		{habitacion: 105, descripcion: 'Habitación Matrimonial', precio: 65, estado: 'reservado', dni:'', cliente: 'Sin datos', direccion:'', personas: 2, niños: 2, fecha: '2020-02-20 00:00', hasta: '2020-02-23 11:35'},
+		{habitacion: 204, descripcion: 'Habitación Matrimonial', precio: 65, estado: 'limpieza', dni:'', cliente: 'Sin datos', direccion:'', personas: 2, niños: 2, fecha: '2020-02-20 00:00', hasta: '2020-02-23 11:35'},
+		],
+		listaProductos:[],
+		habNumero:0, habEstado:'', habDNI:'', habResponsable:'', habAdultos:0, habNinos:0, habComienza:'', habPrecio:0, habTermina:'', ocultarBotones:false, habDias:0, queMostrar:'', habDireccion:'', idCuarto:-1,
+		llamaProducto: false,
+  }, methods:{
+		llamarCama: function(idCama){
+			this.habNumero = this.camas[idCama].habitacion;
+			this.habEstado = this.camas[idCama].estado;
+			this.habPrecio = this.camas[idCama].precio;
+			this.habResponsable = this.camas[idCama].cliente;
+			this.habAdultos = this.camas[idCama].personas;
+			this.habNinos = this.camas[idCama].niños;
+			this.habComienza = moment(this.camas[idCama].fecha, 'YYYY-MM-DD H:mm').format('YYYY-MM-DD');
+			this.habTermina = moment(this.camas[idCama].hasta, 'YYYY-MM-DD H:mm').format('YYYY-MM-DD');
+			this.idCuarto = idCama;
+			this.ocultarBotones=false;
+			
+			$('#modalLibreInicial').modal('show');
+			/* switch (this.camas[idCama].estado) {
+				case 'libre': $('#modalLibreInicial').modal('show'); break;
+				case 'ocupado': $('#modalCama').modal('show'); break;
+				default:
+					break;
+			} */
+			
+		},
+		hoy: function(){
+			return moment().format('YYYY-MM-DD');
+		},
+		sumarDias: function(){
+			if( this.habComienza =='' || this.habComienza =="Invalid date" ){ this.habComienza = moment( ).format('YYYY-MM-DD'); }
+			let inicial = moment( this.habComienza , 'YYYY-MM-DD');
+
+			if(this.habDias=='' || this.habDias<0 ){ this.habDias=0; }
+			this.habTermina= inicial.add(this.habDias, 'd').format('YYYY-MM-DD');
+		},
+		diferenciaDias: function(){
+			return 5;
+		},
+		habilitarCuarto: function(id){
+			this.camas[id].estado='libre';
+			this.camas[id].dni='';
+			this.camas[id].cliente='';
+			this.camas[id].direccion='';
+			this.camas[id].personas='';
+			this.camas[id].niños=0;
+			this.camas[id].fecha='';
+			this.camas[id].hasta='';
+			this.ocultarBotones=!this.ocultarBotones;
+			$('#modalLibreInicial').modal('hide');
+		},
+		productosRelleno: function(){
+			this.llamaProducto=true;
+		},
+		restarItem: function(id){
+			if(this.listaProductos[id].cantidad>1){
+				this.listaProductos[id].cantidad-=1;
+			}
+		},
+		sumarItem: function(id){
+			this.listaProductos[id].cantidad=this.listaProductos[id].cantidad+1;
+		},
+		eliminarItem: function(id){
+			this.listaProductos.splice(id,1);
+		}
+	
+	},
+	computed:{
+		sumaProductos(){
+			let suma=0;
+			for (let index = 0; index < this.listaProductos.length; index++) {
+				suma += this.listaProductos[index].cantidad * this.listaProductos[index].precio;
+			}
+			return parseFloat(suma).toFixed(2);
+		}
+		
+	}, updated() {
+  if (this.llamaProducto) {
+    var options = {
+				data: [
+					{nombre: 'Gaseosa Coca cola 250ml', precio: 3.5},
+					{nombre: 'Cerveza Pilsen Lata 355ml', precio: 4.5},
+					{nombre: 'Cerveza Cuzqueña Botella 6500ml', precio: 6.5},
+					{nombre: 'Gaseosa Guaraná 3L', precio: 9},
+					{nombre: 'Vino tinto Santiago Queirolo 750ml', precio: 20},
+					{nombre: 'Vino Rosé Tabernero 750ml', precio: 23},
+					{nombre: 'Vino semiseco Viña nueva 750ml', precio: 30}
+				],
+				getValue: "nombre",
+				list:{
+					match: { enabled: true
+					},
+					onChooseEvent: function() {
+						var producto = $("#txtProductos").getSelectedItemData().nombre;
+						var precio = $("#txtProductos").getSelectedItemData().precio;
+						var lista =[];
+						//console.log('precio es:' + precio)
+						lista.push({'nombre': producto, 'precio': precio, cantidad: 1, 'fecha': moment().format('DD/MM/YYYY h:mm a')  });
+						$("#txtProductos").val('');
+					}
+				}
+			};
+			
+			$("#txtProductos").easyAutocomplete(options);
+  }
+}
+});
+
+$("#app").on( 'focus', 'input', function(){
+	this.select();
+});
+
+</script>
+</body>
+</html>
