@@ -25,4 +25,17 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function panel(){
+        return view('panel.principal');
+    }
+    public function mascotasIndex(){
+        return view('mascotas.index');
+    }
+    public function mascotasHistorial($id){
+        return view('mascotas.historial');
+    }
+    public function mascotasEnvio(Request $request){
+        return $request;
+    }
 }

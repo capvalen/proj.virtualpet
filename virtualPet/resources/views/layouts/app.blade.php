@@ -7,11 +7,8 @@
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>{{ config('app.name', 'Virtual Pet') }}</title>
+	<title>{{ config('app.name', 'Virtual Pet') }} - @yield('titulo')</title>
 	<link rel="icon" type="image/png" href="{{url('images/peto.png')}}" sizes="32x32">
-
-	<!-- Scripts -->
-	<script src="{{ asset('js/app.js') }}" defer></script>
 
 	<!-- Fonts -->
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -148,7 +145,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/app.min.js') }}"></script>
 
 
 @yield('script')

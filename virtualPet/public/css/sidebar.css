@@ -4,25 +4,29 @@
 
 
 body {
-		/* background: #fafafa; */
-		background:#f1f1f1;
+    background: #f7f7f7;
 }
-
+#content{
+    background: #fff;
+}
 p {
-	font-weight: 300;
-	color: #777;
+    
+    
+    /* font-weight: 300; */
+    
+    color: #5f5f5f;
 }
 
-a,
-a:hover,
-a:focus {
+#sidebar a,
+#sidebar a:hover,
+#sidebar a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
 }
 
 .navbar {
-    padding: 0px 10px; /* 15px 10px; */
+    padding: 15px 10px;
     background: #fff;
     border: none;
     border-radius: 0;
@@ -55,7 +59,7 @@ a:focus {
     height: 100vh;
     z-index: 999;
     background: #fff; /*#7386D5;*/
-    color: #851b9a;/* #a35bb4; */ /*color: #fff;*/
+    color: #3E4095; /*color: #fff;*/
     transition: all 0.3s;
     overflow-y: scroll;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
@@ -69,7 +73,7 @@ a:focus {
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: #851b9ad9;/* #b548c7bd; *//*#7386D5;*/
+    background: #3e4095;/*#7386D5;*/
     position: absolute;
     top: 10px;
     right: 10px;
@@ -84,8 +88,8 @@ a:focus {
 #dismiss:hover {
     /*background: #fff;
     color: #7386D5;*/
-		background: #fbecff;
-    color: #a35bb4;
+    background: #fbecff;
+    color: #3e4095;
 }
 #dismiss ion-icon{
 		padding-right: 0!important;
@@ -117,7 +121,7 @@ a:focus {
 }
 
 #sidebar ul p {
-	color: #851b9a;/* #a35bb4; */
+    color: #3e4095;
 	margin: 0;
 }
 
@@ -128,17 +132,19 @@ a:focus {
     display: block;
 		margin-right: 10px;
 }
-#sidebar ion-icon{
+#sidebar ion-icon, #sidebar i{
     font-size: 24px;
 		padding-right: 10px;
 }
+#sidebar .icofont-caret-down{
+    font-size: 14px}
 
 #sidebar ul li a:hover {
     /*color: #7386D5;
     background: #fff;*/
-    color: #640b75; /* #a35bb4; */
+    color: #8e5bb4;
     /*border-bottom: solid #a35bb4 3px;*/
-		border-bottom: solid #ffba0d 2px;
+		border-bottom: solid #8e5bb4 2px;
     border-radius: 3px;
     padding: 10px;
     margin-left: 10px;
@@ -148,7 +154,7 @@ a:focus {
 #sidebar ul li.active>a {
     /*color: #fff;
     background: #6d7fcc;*/
-		background: #851b9a; /* rgb(163, 91, 180); */
+		background: rgb(163, 91, 180);
 		color: #fff;
     border-radius: 0 30px 30px 0;
 }
@@ -225,8 +231,41 @@ a.article:hover {
 .btn-outline-light:hover, .btn-outline-light:not(:disabled):not(.disabled):active{
     color: #a35bb4;
 }
-.dropdown-item{color: #851b9a;}
-.dropdown-item:hover{color:#560b65}
-h1,h2,h3,h4{
-	color: #851b9a;
+.dropdown-item{color: #3094fb;}
+
+.show li a:hover{margin: 0px!important;}
+
+.fixed-top{
+    z-index: 997;
 }
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.75); /* Black background with opacity */
+    z-index: 1051; /* Specify a stack order in case you're using a different order for other elements */
+   /* Add a pointer on hover */
+  }
+  #overlay .text{position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 18px;
+    color: white;
+    user-select: none;
+    transform: translate(-50%,-50%);
+  }
+  #hojita{font-size: 36px; display: inline; animation: cargaData 6s ease infinite;}
+  #pFrase{ display: inline; color: #ffffff; }
+  #pFrase span{ font-size: 13px;}
+  @keyframes cargaData {
+    0%  {color: #96f368;}
+    25%  {color: #f3dd68;}
+    50% {color: #f54239;}
+    75% {color: #c173ce;}
+    100% {color: #33dbdb;}
+  }

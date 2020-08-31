@@ -20,3 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/panel', 'HomeController@panel')->name('panel');
+
+Route::get('/mascotas', 'HomeController@mascotasIndex')->name('mascotas.index');
+Route::get('/mascota/historial/{id}', 'HomeController@mascotasHistorial')->name('mascotas.historial');
+
+Route::post('/mascota/envio', 'HomeController@mascotasEnvio')->name('mascotas.envioDatos');
