@@ -3456,19 +3456,19 @@
     }
 
     var defaultRelativeTime = {
-        future : 'in %s',
-        past   : '%s ago',
-        s  : 'a few seconds',
-        m  : 'a minute',
-        mm : '%d minutes',
-        h  : 'an hour',
-        hh : '%d hours',
-        d  : 'a day',
-        dd : '%d days',
-        M  : 'a month',
-        MM : '%d months',
-        y  : 'a year',
-        yy : '%d years'
+        future : 'en %s',
+        past   : '%s hace',
+        s  : 'a pocos segundos',
+        m  : 'un minuto',
+        mm : '%d minutos',
+        h  : 'una hora',
+        hh : '%d horas',
+        d  : 'un día',
+        dd : '%d días',
+        M  : 'un mes',
+        MM : '%d meses',
+        y  : 'un año',
+        yy : '%d años'
     };
 
     function relative__relativeTime (number, withoutSuffix, string, isFuture) {

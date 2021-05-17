@@ -35,6 +35,9 @@ class HomeController extends Controller
     public function mascotasHistorial($id){
         return view('mascotas.historial');
     }
+    public function registro(){
+        return view('panel.registro');
+    }
     public function mascotasEnvio(Request $request){
         return $request;
     }

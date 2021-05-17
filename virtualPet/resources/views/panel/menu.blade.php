@@ -9,7 +9,7 @@
 	</div>
 
 	<ul class="list-unstyled components">
-		<p class="text-center"><small>Versión 1.0.1</small></p>
+		<p class="text-center"><small>Versión 1.0.2</small></p>
 
     <li>
       <a href="{{route('panel')}}"><i class="icofont-hospital"></i> Principal</a>
@@ -17,7 +17,10 @@
     <li>
       <a href="{{route('mascotas.index')}}"><i class="icofont-elephant"></i> Mascotas</a>
     </li>
-    
+    <li>
+      <a href="{{route('productos.index')}}"><i class="icofont-box"></i> Productos</a>
+    </li>
+
 		<li>
 			<a href="configuraciones.php" class="d-flex align-items-center"><i class="icofont-ui-settings"></i>
 				Configuraciones</span></a>
@@ -50,14 +53,11 @@
 					<input class="form-control mr-sm-2 inputIcon" type="search" id="txtBusquedaGlobal" placeholder="&#xed11;" aria-label="Search">
 				</form>
 				<span class="navbar-text">
-					<button class="btn btn-outline-light rounded-circle sinBorde" data-toggle="tooltip" data-placement="bottom" title="Nuevo cliente"><i class="icofont-user-alt-7"></i></button>
-				</span>
-				<span class="navbar-text">
-					<button class="btn btn-outline-light rounded-circle sinBorde" data-toggle="tooltip" data-placement="bottom" title="Nueva mascota"><i class="icofont-paw"></i></button>
+					<a href="{{route('nuevo.registro')}}" class="btn btn-outline-light rounded-circle sinBorde p-2 mx-3" data-toggle="tooltip" data-placement="bottom" title="Registrar"><i class="icofont-first-aid"></i></a>
 				</span>
 				<span class="navbar-text mr-2">
-					<button class="btn btn-outline-light rounded-circle sinBorde" data-toggle="tooltip" data-placement="bottom" title="Alertas"><i class="icofont-satellite"></i></button>
-					<span class="badge badge-dark ml-n2">1</span>
+					<button class="btn btn-outline-light rounded-circle sinBorde p-2 mx-3" data-toggle="tooltip" data-placement="bottom" title="Alertas"><i class="icofont-satellite"></i></button>
+					<span class="badge badge-dark ml-n4">1</span>
 				</span>
 
 				<li class="nav-item dropdown d-inline-flex">

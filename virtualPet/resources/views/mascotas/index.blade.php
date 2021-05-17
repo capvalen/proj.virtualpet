@@ -530,10 +530,11 @@ function asociarDatos(){
 }
 
 </script>
+{{-- 
 Color y descripción para 
 estrellas
 Rojo-> aleta
 plomo nuevo
-amarillo good
+amarillo good --}}
 @endsection
 

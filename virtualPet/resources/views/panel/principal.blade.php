@@ -2,26 +2,13 @@
 
 @section('css')
 <style>
-	#divCabecera{
-		background-color: #ffc623;
-		padding: 5rem;
+	.nav i{
+		font-size: 1.5rem;
 	}
-	#imgCircular{
-		margin-top: -7rem!important;
+	.nav a:hover{
+		color: #a35bb4!important;
 	}
-	#primeraColumna{
-		min-height: 100vh;
-		background: #fff;
-	}
-	h3{color: #1f1f1f}
-	.table .thead-dark th {
-    background-color: #2b359a;
-    border-color: #0a1265;
-	}
-	.tablaPortada{
-		font-size: 0.9rem;
-	}
-	#cartas i{ font-size:2.7rem;	}
+	
 </style>
 @endsection
 
