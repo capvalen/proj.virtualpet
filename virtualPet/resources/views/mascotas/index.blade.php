@@ -41,11 +41,11 @@
 			<h4 class="text-center pt-3">Sección Mascotas</h4>
 			
 			<div class="text-center pt-3 px-2">
-				<button class="btn btn-outline-success btn-block my-3" data-toggle="modal" data-target="#modalAddPaciente"><span class="icon-gitlab"></span> Nuevo paciente</button>
+				<a class="btn btn-outline-success btn-block my-3" href="{{route('nuevo.registro')}}"><span class="icon-gitlab"></span> Nuevo paciente</a>
 
-				<label class=""><i class="icofont-search"></i> Búsqueda personalizada:</label>
+				<label class=""><i class="icofont-search"></i> <strong>Búsqueda personalizada</strong></label>
 				<input type="search" class="form-control mt-2" placeholder="Nombre de la mascota" v-on:keyup.enter='busquedaActiva=true'>
-				<input type="search" class="form-control mt-2" placeholder="Propietario" v-on:keyup.enter='busquedaActiva=true'>
+				<input type="search" class="form-control mt-2" placeholder="DNI o Nombre del Propietario" v-on:keyup.enter='busquedaActiva=true'>
 				<div class="form-group mt-2">
 					<select id="sltEspecie" class="form-control selectpicker" title="Especie" data-live-search="true" data-width="100%">
 						<option>Perro</option>
@@ -77,9 +77,9 @@
 		<div class="col-12 col-md-12 col-lg-5 pt-2" id="divCuadroDefecto" v-if="!busquedaActiva">
 			<div class="card mt-2">
 				<div class="card-body">
-					<h5><i class="icofont-dog-alt"></i> Últimas mascotas registradas <span class="badge badge-secondary">5</span></h5>
+					<h5><i style="font-size: 2rem" class="icofont-dog-alt"></i> Últimos pacientes registrados <span class="badge badge-secondary">5</span></h5>
 					<div class="table-responsive mb-5 pb-5">
-						<table class="table table-hover table-sm tablaPortada " id="tablaDefecto">
+						<table class="table table-hover  tablaPortada " id="tablaDefecto">
 							<thead class="thead-dark">
 								<tr>
 									<th scope="col">Código</th>
@@ -91,7 +91,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								<tr onclick="window.location.replace('{{route('mascotas.perfil')}}')">
 									<td class="text-capitalize petCodigo"><a class="text-decoration-none" href="#!">PET-16</a></td>
 									<td class="text-capitalize tdSiguientePaso">Petita</td>
 									<td class="text-capitalize">angoma inga</td>
@@ -99,7 +99,7 @@
 									<td>hace 4 minutos</td>
 									<td class="tdSiguientePaso"><i class="icofont-caret-right"></i></td>
 								</tr>
-								<tr>
+								<tr onclick="window.location.replace('{{route('mascotas.perfil')}}')">
 									<td class="text-capitalize petCodigo"><a class="text-decoration-none" href="#!">PET-8</a></td>
 									<td class="text-capitalize tdSiguientePaso">Manchas</td>
 									<td class="text-capitalize">Domingo salcedo</td>
@@ -107,7 +107,7 @@
 									<td>hace 1 hora</td>
 									<td class="tdSiguientePaso"><i class="icofont-caret-right"></i></td>
 								</tr>
-								<tr>
+								<tr onclick="window.location.replace('{{route('mascotas.perfil')}}')">
 									<td class="text-capitalize petCodigo"><a class="text-decoration-none" href="#!">PET-15</a></td>
 									<td class="text-capitalize tdSiguientePaso">Tamarindo</td>
 									<td class="text-capitalize">mamani huertas</td>
@@ -115,7 +115,7 @@
 									<td>hace 1 hora</td>
 									<td class="tdSiguientePaso"><i class="icofont-caret-right"></i></td>
 								</tr>
-								<tr>
+								<tr onclick="window.location.replace('{{route('mascotas.perfil')}}')">
 									<td class="text-capitalize petCodigo"><a class="text-decoration-none" href="#!">PET-36</a></td>
 									<td class="text-capitalize tdSiguientePaso">Conejin</td>
 									<td class="text-capitalize">Gonzales Portocarrero</td>
@@ -123,7 +123,7 @@
 									<td>hace 1 hora</td>
 									<td class="tdSiguientePaso"><i class="icofont-caret-right"></i></td>
 								</tr>
-								<tr>
+								<tr onclick="window.location.replace('{{route('mascotas.perfil')}}')">
 									<td class="text-capitalize petCodigo"><a class="text-decoration-none" href="#!">PET-25</a></td>
 									<td class="text-capitalize tdSiguientePaso">Randy</td>
 									<td class="text-capitalize">Domingo salcedo</td>
@@ -195,48 +195,7 @@
 
 
 
-		<div class="col-12 col-md-12 col-lg-5 pt-2 pb-5 mb-5" id="divDetalle" v-if="verDetalle">
-			<a href="#!" @click="volverCuadro()"><i class="icofont-caret-left"></i> Volver a cuadros</a>
-			
-			<h5><i class="icofont-paw"></i> Paciente</h5>
-			<div class="card">
-				<div class="card-body">
-					<div class="row row-cols-2">
-						<div class="col-12 col-md"><img src="{{asset('images/mascotas_perfil/1.jpg')}}" class="img-fluid" alt=""></div>
-						<div class="col-12 col-md">
-							<label for=""><strong>Código: </strong> <span><a class="text-decoration-none" href="{{route('mascotas.historial', 'PET-52')}}}">PET-35</a></span></label><br>
-							<label for=""><strong>Nombre: </strong> <span>Manchas</span></label><br>
-							<label for=""><strong>Especie: </strong> <span>Perro alemán</span></label><br>
-							<label for=""><strong>Sexo: </strong> <span>Hembra</span> <span class="icon-female"></span> </label><br>
-							<label for=""><strong>Edad: </strong> <span>3 años</span></label><br>
-							<label for=""><strong>Cumpleaños: </strong> <span>14/05/2020 (en 25 días)</span></label><br>
-						</div>
-						
-					</div>
-				</div>
-			</div>
-			<h5 class="mt-3"><i class="icofont-ui-user"></i> Propietario</h5>
-			<div class="card">
-				<div class="card-body">
-					<div class="row row-cols-1 row-cols-md-2">
-						<div class="col"><strong>Nombre: </strong> <span>Roberto Carlos Arguez Dante</span></div>
-						<div class="col"><strong>D.N.I.: </strong> <span>25369945</span></div>
-						<div class="col"><strong>Celular: </strong> <span>25/06/2020</span></div>
-						<div class="col-12"><strong>Cumpleaños: </strong> <span>14/05/2020 (en 25 días)</span></div>
-					</div>
-				</div>
-			</div>
-			<h5 class="mt-3"><i class="icofont-ui-music-player"></i> Sistema</h5>
-			<div class="card">
-				<div class="card-body">
-					<div class="row row-cols-1 row-cols-md-2">
-						<div class="col"><strong>Registado: </strong> <span>11/03/2020 5:41pm</span></div>
-						<div class="col"><strong>Registrador: </strong> <span>Jorge R.</span></div>
-					</div>
-				</div>
-			</div>
-
-		</div>
+		
 
 
 
@@ -424,9 +383,7 @@ var app = new Vue({
 		volverCuadro(){
 			this.verDetalle=false;
 			$( this.queIdCuadro ).removeClass('d-none');
-			animateCSS( this.queIdCuadro , 'fadeInLeft', function(){
-				
-			});
+			//animateCSS( this.queIdCuadro , 'fadeInLeft', function(){ });
 		}
 	},
 	computed:{
@@ -462,20 +419,18 @@ $(document).ready(function(){
 	$('#app').on('click', '.tdSiguientePaso', function(){ console.log( 'click' );
 		let procedencia= $(this).parent().parent().parent();
 		
-		if( $(procedencia).attr('id') == 'tablaDefecto'){
-			animateCSS('#divCuadroDefecto', 'fadeOutLeft', function(){
-				$('#divCuadroDefecto').addClass('d-none');
+		/* if( $(procedencia).attr('id') == 'tablaDefecto'){
+			$('#divCuadroDefecto').addClass('d-none');
 				app.queIdCuadro = '#divCuadroDefecto';
 				app.verDetalle=true;
-			});
-		}
+			//animateCSS('#divCuadroDefecto', 'fadeOutLeft', function(){ });
+		} */
 
 		if( $(procedencia).attr('id') == 'tablaResultados'){
-			animateCSS('#divCuadroBusqueda', 'fadeOutLeft', function(){
-				$('#divCuadroBusqueda').addClass('d-none');
-				app.queIdCuadro = '#divCuadroBusqueda';
-				app.verDetalle=true;
-			});
+			$('#divCuadroBusqueda').addClass('d-none');
+			app.queIdCuadro = '#divCuadroBusqueda';
+			app.verDetalle=true;
+			//animateCSS('#divCuadroBusqueda', 'fadeOutLeft', function(){ });
 		}
 	});
 

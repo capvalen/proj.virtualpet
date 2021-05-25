@@ -36,6 +36,10 @@
 	.form-control::placeholder{
 		color: #949494;
 	}
+	input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
+		outline-offset: -2px;
+    outline: -webkit-focus-ring-color auto 5px;}
+
 	.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
      background-color: #f8b831;
      box-shadow:0 0 3px #f8b831;
@@ -53,6 +57,17 @@
  .custom-control-label::before {
 	background-color: #fff;
 }
+.abc-checkbox label::before{
+	width: 20px;
+  height: 20px;
+}
+.abc-checkbox label::after{
+	font-size: 13px;
+}
+.abc-checkbox-primary input[type="checkbox"]:checked + label::before, .abc-checkbox-primary input[type="radio"]:checked + label::before{
+	background-color: #f8b731;
+	border-color: #ffb315;
+}
 </style>
 @endsection
 
@@ -60,7 +75,7 @@
 
 @section('contenido')
 <div class="container-fluid" id="app">
-	<h1>Registro nuevo </h1>
+	<h2>Registro nuevo </h2>
 	<div class="row">
 		<div class="col-12 col-md-4 col-lg-3" id="primerDiv">
 			<div class="card">
@@ -142,40 +157,168 @@
 						
 						</div>
 					</div>
-
-
-
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<label for="">Especie</label>
+								<select id="my-select" class="form-control" name="">
+									<option>Perro</option>
+									<option>Gato</option>
+									<option>Otro</option>
+								</select>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label for="">Raza</label>
+								<select id="my-select" class="form-control" name="">
+									<option>Ninguna</option>
+									<option>Buldog</option>
+									<option>Labrador</option>
+								</select>
+							</div>
+						</div>
+						<div class="col">
+							<label for="">Sexo</label>
+							<div class="d-flex justify-content-around">
+								<div class="custom-control custom-radio">
+									<input type="radio" id="radMacho" name="sexo" class="custom-control-input" value="macho" checked>
+									<label class="custom-control-label" for="radMacho">Macho</label>
+								</div>
+								<div class="custom-control custom-radio">
+									<input type="radio" id="radHembra" name="sexo" class="custom-control-input" value="hembra">
+									<label class="custom-control-label" for="radHembra">Hembra</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<label for="">Peso (Kg.)</label>
+								<input type="number" class="form-control" placeholder="Peso" autocomplete="nope" value="1">
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label for="">Color</label>
+								<input type="text" class="form-control" placeholder="Color" autocomplete="nope" value="Negro">
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label for="">Código pers.</label>
+								<input type="text" class="form-control" placeholder="Código personalizado" autocomplete="nope" value="">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-check abc-checkbox abc-checkbox-primary">
+								<input class="form-check-input" id="chkCastrado" type="checkbox">
+								<label class="form-check-label" for="chkCastrado"> Sin castrar</label>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-check abc-checkbox abc-checkbox-primary">
+								<input class="form-check-input" id="chkReproductor" type="checkbox" checked>
+								<label class="form-check-label" for="chkReproductor"> Reproductor</label>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-check abc-checkbox abc-checkbox-primary">
+								<input class="form-check-input" id="chkAdoptado" type="checkbox" checked>
+								<label class="form-check-label" for="chkAdoptado"> Adoptado</label>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-check abc-checkbox abc-checkbox-primary">
+								<input class="form-check-input" id="chkDesparasitado" type="checkbox" >
+								<label class="form-check-label" for="chkDesparasitado"> Desparasitado</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<label for="txtInfoAdicional">Motivo de consulta</label>
+							<input type="text" class="form-control" placeholder="Motivo" autocomplete="nope">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<label for="txtInfoAdicional">Información adicional</label>
+								<textarea id="txtInfoAdicional" class="form-control" name="" rows="2"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h5><i style="font-size: 1.5rem;" class="icofont-camera"></i> Foto del animal:</h5>
+							<div class="w-75 mx-auto">
+								<img src="{{url('/images/hamster.jpg')}}" alt="" class="img-fluid rounded-circle">
+							</div>
+							<div class="dropdown text-center">
+								<a href="#!" class="text-decoration-none text-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seleccionar foto</a>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#"><i class="icofont-rounded-right"></i> Subir foto</a>
+									<a class="dropdown-item" href="#"><i class="icofont-rounded-right"></i> Seleccionar un avatar</a>
+								</div>
+							</div>
+						</div>
+					</div> 
 				</div>
 			</div>
 		</div>
 		<div class="col">
-
+			<div class="card">
+				<div class="card-body">
+					<button class="btn btn-outline-warning btn-block btn-lg"><span class="icon-gitlab"></span> Terminar registro</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
 @endsection
 @section('script')
 <script>
-	$('input[type=radio][name=genero]').on('change', function() {
+	$('input[type=radio][name="genero"]').on('change', function() {
 		switch ($(this).val()) {
 			case 'masculino':
 				$('#imgCliente').attr('src', '/images/pe3.png')
 				break;
 			case 'femenino':
 				$('#imgCliente').attr('src', '/images/pe6.png')
-				
 				break;
 		}
 	});
 	$('.fechaCalculada').on('keyup', function(e){
-		
 		let dias=0, meses=0, anios=0, fechaCalc;
+
 		if($('#txtDias').val() !=''){ dias = $('#txtDias').val(); }
 		if($('#txtMeses').val() !=''){ meses = $('#txtMeses').val(); }
 		if($('#txtAnios').val() !=''){ anios = $('#txtAnios').val(); }
 		moment.locale('es')
 		fechaCalc = moment().subtract(anios, 'years').subtract(meses, 'months').subtract(dias, 'days')
 		$('#fechaAprox').text(fechaCalc.fromNow() + " aprox. " + fechaCalc.format('DD/MM/YYYY') );
-	})
+	});
+	$('#chkCastrado').on('change', function() { //console.log($('#chkCastrado:checked').val())
+		if($('#chkCastrado:checked').val()){ $('#chkCastrado').next().text('Castrado')
+		}else{ $('#chkCastrado').next().text('Sin castrar') }
+	});
+	$('#chkReproductor').on('change', function() { //console.log($('#chkCastrado:checked').val())
+		if($('#chkReproductor:checked').val()){ $('#chkReproductor').next().text('Reproductor')
+		}else{ $('#chkReproductor').next().text('Infecundo') }
+	});
+	$('#chkAdoptado').on('change', function() { //console.log($('#chkCastrado:checked').val())
+		if($('#chkAdoptado:checked').val()){ $('#chkAdoptado').next().text('Adoptado')
+		}else{ $('#chkAdoptado').next().text('Callejero') }
+	});
+	$('#chkDesparasitado').on('change', function() { //console.log($('#chkCastrado:checked').val())
+		if($('#chkDesparasitado:checked').val()){ $('#chkDesparasitado').next().text('Desparasitado')
+		}else{ $('#chkDesparasitado').next().text('Sin desparasitar') }
+	});
 </script>
 @endsection

@@ -29,6 +29,7 @@ Route::get('/mascotas', 'HomeController@mascotasIndex')->name('mascotas.index');
 Route::get('/mascota/historial/{id}', 'HomeController@mascotasHistorial')->name('mascotas.historial');
 
 Route::post('/mascota/envio', 'HomeController@mascotasEnvio')->name('mascotas.envioDatos');
+Route::get('/mascota/perfil', 'MascotasControlador@perfil')->name('mascotas.perfil');
 
 Route::get('/registro', 'HomeController@registro')->name('nuevo.registro');
 Route::get('/productos', 'ProductosControlador@index')->name('productos.index');
