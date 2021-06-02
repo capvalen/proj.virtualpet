@@ -75,16 +75,16 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr data-toggle="popover" class="salirPop">
+								<tr data-toggle="popover" onclick="window.location.href = '{{route('producto.detalle')}}'" class="salirPop">
 									<td >P-1</td>
-									<td><a href="{{route('producto.detalle')}}">Corte de pelo</a></td>
+									<td>Corte de pelo</td>
 									<td>-</td>
 									<td>45.00</td>
 									<td>Servicio</td>
 								</tr>
-								<tr data-toggle="popover" class="salirPop">
+								<tr data-toggle="popover" onclick="window.location.href = '{{route('producto.detalle')}}'" class="salirPop">
 									<td>P-6</td>
-									<td><a href="{{route('producto.detalle')}}">LABHIDRO AD3E INYECTABLE</a></td>
+									<td>LABHIDRO AD3E INYECTABLE</td>
 									<td>6</td>
 									<td>33.50</td>
 									<td>Inyectable</td>

@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
+
 
 class MascotasControlador extends Controller
 {
@@ -14,11 +16,13 @@ class MascotasControlador extends Controller
 	 */
 	public function __invoke(Request $request)
 	{
-			//
+		//
 	}
-	public function perfil()
-	{
+	public function perfil($pet = null){
 		return view('mascotas.perfil');
+	}
+	public function visita(){
+		return view('mascotas.nueva_visita');
 	}
 
 }

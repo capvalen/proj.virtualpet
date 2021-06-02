@@ -8,7 +8,6 @@
 	.nav a:hover{
 		color: #a35bb4!important;
 	}
-	
 </style>
 @endsection
 

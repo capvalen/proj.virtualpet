@@ -21,6 +21,7 @@
 #divDetalle .row .col, #divDetalle .row .col-12{
 	margin-top:0.5rem;
 }
+td{cursor: pointer;}
 </style>
 @endsection
 
@@ -91,7 +92,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr onclick="window.location.replace('{{route('mascotas.perfil')}}')">
+								<tr onclick="window.location.href = '{{route('mascotas.perfil', 'PET-48')}}'; ">
 									<td class="text-capitalize petCodigo"><a class="text-decoration-none" href="#!">PET-16</a></td>
 									<td class="text-capitalize tdSiguientePaso">Petita</td>
 									<td class="text-capitalize">angoma inga</td>
@@ -99,7 +100,7 @@
 									<td>hace 4 minutos</td>
 									<td class="tdSiguientePaso"><i class="icofont-caret-right"></i></td>
 								</tr>
-								<tr onclick="window.location.replace('{{route('mascotas.perfil')}}')">
+								<tr onclick="window.location.href = '{{route('mascotas.perfil', 'PET-48')}}'; ">
 									<td class="text-capitalize petCodigo"><a class="text-decoration-none" href="#!">PET-8</a></td>
 									<td class="text-capitalize tdSiguientePaso">Manchas</td>
 									<td class="text-capitalize">Domingo salcedo</td>
@@ -107,7 +108,7 @@
 									<td>hace 1 hora</td>
 									<td class="tdSiguientePaso"><i class="icofont-caret-right"></i></td>
 								</tr>
-								<tr onclick="window.location.replace('{{route('mascotas.perfil')}}')">
+								<tr onclick="window.location.href = '{{route('mascotas.perfil', 'PET-48')}}'; ">
 									<td class="text-capitalize petCodigo"><a class="text-decoration-none" href="#!">PET-15</a></td>
 									<td class="text-capitalize tdSiguientePaso">Tamarindo</td>
 									<td class="text-capitalize">mamani huertas</td>
@@ -115,7 +116,7 @@
 									<td>hace 1 hora</td>
 									<td class="tdSiguientePaso"><i class="icofont-caret-right"></i></td>
 								</tr>
-								<tr onclick="window.location.replace('{{route('mascotas.perfil')}}')">
+								<tr onclick="window.location.href = '{{route('mascotas.perfil', 'PET-48')}}'; ">
 									<td class="text-capitalize petCodigo"><a class="text-decoration-none" href="#!">PET-36</a></td>
 									<td class="text-capitalize tdSiguientePaso">Conejin</td>
 									<td class="text-capitalize">Gonzales Portocarrero</td>
@@ -123,7 +124,7 @@
 									<td>hace 1 hora</td>
 									<td class="tdSiguientePaso"><i class="icofont-caret-right"></i></td>
 								</tr>
-								<tr onclick="window.location.replace('{{route('mascotas.perfil')}}')">
+								<tr onclick="window.location.href = '{{route('mascotas.perfil', 'PET-48')}}'; ">
 									<td class="text-capitalize petCodigo"><a class="text-decoration-none" href="#!">PET-25</a></td>
 									<td class="text-capitalize tdSiguientePaso">Randy</td>
 									<td class="text-capitalize">Domingo salcedo</td>
