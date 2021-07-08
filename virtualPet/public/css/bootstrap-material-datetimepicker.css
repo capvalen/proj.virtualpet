@@ -51,7 +51,7 @@ Extract from: https://github.com/T00rk/bootstrap-material-datetimepicker
 
 .dtp table.dtp-picker-days tr > td > a, .dtp .dtp-picker-time > a { color: #212121; text-decoration: none; padding: 0.4em 0.5em 0.5em 0.6em; /*border-radius: 50%!important;*/ }
 
-.dtp table.dtp-picker-days tr > td > a.selected{ background: #694ac3;/*#8BC34A;*/ color: #fff; border-radius: 50%; width: 26px; height: 26px; padding-top: 5px; }
+.dtp table.dtp-picker-days tr > td > a.selected{ background: #694ac3;/*#8BC34A;*/ color: #fff; border-radius: 0; width: 26px; height: 26px; padding-top: 5px; }
 
 .dtp table.dtp-picker-days tr > th { color: #757575; text-align: center; font-weight: 700; padding: 0.4em 0.3em; }
 

@@ -11,4 +11,6 @@
 	<script src="{{asset('js/jquery.easy-autocomplete.min.js?version=1.0.2')}}"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+	<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/filepond/4.28.2/filepond.min.js" integrity="sha512-zR/H/r8GUTgwH0a7X03da99JtgeRjhOhR+qlQ5p2qGKEVSaZApPDQ0/mzxUHDNdo/NHy6KrN/6u93EiQgnzQow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	

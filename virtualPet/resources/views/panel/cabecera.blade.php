@@ -9,14 +9,17 @@
 <link rel="stylesheet" href="{{url('css/icofont.min.css')}}">
 <link rel="stylesheet" href="{{url('css/anatsunamun.css?version=1.0.2')}}" >
 <link rel="stylesheet" href="{{url('css/bootstrap-select.min.css?version=0.4')}}" >
-<link rel="stylesheet" href="{{url('css/bootstrap-material-datetimepicker.css?version=0.1')}}" >
+<link rel="stylesheet" href="{{url('css/bootstrap-material-datetimepicker.css?version=0.2')}}" >
 <link rel="stylesheet" href="{{url('css/animate.css?version=0.0')}}" >
 <link rel="stylesheet" href="{{url('css/alertify.min.css?version=1.0.10')}}" >
 <link rel="stylesheet" href="{{asset('css/easy-autocomplete.min.css?version=1.0.3')}}" > <!-- Extraido de: http://easyautocomplete.com/guide -->
 <link rel="stylesheet" href="{{url('icomoon/style.css')}}" >
 <link rel="stylesheet" href="{{url('css/awesome-bootstrap-checkbox.css?version=1.0.0')}}" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/filepond/4.28.2/filepond.css" integrity="sha512-8Qc4YZy6b3H7ZkZtpPmnthXpYak+idK9X59WkzmNY97Z8R9Ni1seAyDed6vjipyNH8Q3c3S0V42yqg8p7CKweg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
+
 
 
 <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">

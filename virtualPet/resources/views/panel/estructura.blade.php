@@ -295,10 +295,10 @@
 
 @yield('script')
 <script>
-  //$('.selectpicker').selectpicker();
   $('[data-toggle="tooltip"]').tooltip();
-
 </script>
 
 </body>
+
+
 </html>
